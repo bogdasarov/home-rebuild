@@ -1,0 +1,1658 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Справочник по ремонту двухкомнатной квартиры 43,6 м² в панельном доме серии 1-464 (Пушкино, Дзержинец): порядок работ, электрика без заземления, сантехника, газ, сметы и расчёты.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#128296;</text></svg>">
+<title>Ремонт на Дзержинце</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+
+<style>
+/* ============ токены: светлая тема по умолчанию ============ */
+:root{
+  --bg:#E6E6E2;
+  --surface:#F7F7F4;
+  --surface-2:#EFEFEB;
+  --ink:#16181A;
+  --ink-2:#4E5358;
+  --ink-3:#7C8288;
+  --line:#CBCBC4;
+  --line-strong:#A9A99F;
+  --accent:#9A6A05;
+  --accent-ink:#6E4C03;
+  --accent-wash:#F0E3C6;
+  --danger:#9E2B21;
+  --danger-wash:#F4DCD9;
+  --ok:#26603C;
+  --ok-wash:#DCEADF;
+  --care:#1F5A66;
+  --care-wash:#D9E9EC;
+  --money:#4A4E52;
+  --money-wash:#E4E4DF;
+  --focus:#9A6A05;
+  --shadow:0 1px 0 rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121415;
+    --surface:#1A1D1F;
+    --surface-2:#212527;
+    --ink:#E9E9E4;
+    --ink-2:#A6ACB1;
+    --ink-3:#7B8288;
+    --line:#2C3134;
+    --line-strong:#454B4F;
+    --accent:#E2AC46;
+    --accent-ink:#F0C377;
+    --accent-wash:#33280F;
+    --danger:#E5776A;
+    --danger-wash:#3A1E1A;
+    --ok:#77C295;
+    --ok-wash:#16301F;
+    --care:#6FBECD;
+    --care-wash:#122C31;
+    --money:#A6ACB1;
+    --money-wash:#25292B;
+    --focus:#E2AC46;
+    --shadow:0 1px 0 rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121415;
+  --surface:#1A1D1F;
+  --surface-2:#212527;
+  --ink:#E9E9E4;
+  --ink-2:#A6ACB1;
+  --ink-3:#7B8288;
+  --line:#2C3134;
+  --line-strong:#454B4F;
+  --accent:#E2AC46;
+  --accent-ink:#F0C377;
+  --accent-wash:#33280F;
+  --danger:#E5776A;
+  --danger-wash:#3A1E1A;
+  --ok:#77C295;
+  --ok-wash:#16301F;
+  --care:#6FBECD;
+  --care-wash:#122C31;
+  --money:#A6ACB1;
+  --money-wash:#25292B;
+  --focus:#E2AC46;
+  --shadow:0 1px 0 rgba(0,0,0,.4);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"PT Serif",Georgia,"Times New Roman",serif;
+  font-size:17px;
+  line-height:1.62;
+  -webkit-text-size-adjust:100%;
+}
+
+/* ============ каркас ============ */
+.shell{display:grid;grid-template-columns:250px minmax(0,1fr);gap:0;max-width:1240px;margin:0 auto;align-items:start}
+
+/* ---- шапка ---- */
+.top{
+  position:sticky;top:0;z-index:40;
+  background:var(--surface);
+  border-bottom:1px solid var(--line-strong);
+}
+.top-in{max-width:1240px;margin:0 auto;padding:10px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.brand{font-family:"Golos Text",system-ui,sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em;white-space:nowrap}
+.brand span{color:var(--accent)}
+.passport{
+  font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11.5px;color:var(--ink-2);
+  display:flex;gap:10px;flex-wrap:wrap;letter-spacing:-.01em
+}
+.passport b{font-weight:600;color:var(--ink)}
+.top-tools{margin-left:auto;display:flex;gap:8px;align-items:center}
+.search{
+  font-family:"Golos Text",system-ui,sans-serif;font-size:14px;
+  background:var(--bg);color:var(--ink);
+  border:1px solid var(--line-strong);border-radius:0;
+  padding:7px 10px;width:190px;
+}
+.search::placeholder{color:var(--ink-3)}
+.btn{
+  font-family:"Golos Text",system-ui,sans-serif;font-size:13px;font-weight:500;
+  background:var(--bg);color:var(--ink);border:1px solid var(--line-strong);
+  padding:7px 11px;cursor:pointer;border-radius:0;white-space:nowrap
+}
+.btn:hover{background:var(--surface-2);border-color:var(--accent)}
+.btn.primary{background:var(--accent-wash);border-color:var(--accent);color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+/* ---- навигация ---- */
+nav.side{
+  position:sticky;top:57px;align-self:start;
+  max-height:calc(100vh - 57px);overflow-y:auto;
+  padding:22px 16px 40px 20px;
+  border-right:1px solid var(--line);
+}
+nav.side ol{list-style:none;margin:0;padding:0;counter-reset:s}
+nav.side a{
+  display:flex;gap:9px;align-items:baseline;
+  font-family:"Golos Text",system-ui,sans-serif;font-size:14px;line-height:1.35;
+  color:var(--ink-2);text-decoration:none;padding:6px 8px 6px 0;border-bottom:1px solid transparent
+}
+nav.side a::before{
+  counter-increment:s;content:counter(s,decimal-leading-zero);
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--ink-3);flex:0 0 auto;padding-top:2px
+}
+nav.side a:hover{color:var(--ink)}
+nav.side a.on{color:var(--accent-ink);font-weight:600}
+nav.side a.on::before{color:var(--accent)}
+.nav-title{
+  font-family:"Golos Text",system-ui,sans-serif;font-size:10.5px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.11em;color:var(--ink-3);margin:0 0 10px
+}
+.navtoggle{display:none}
+
+/* ---- контент ---- */
+main{padding:26px 30px 120px;min-width:0}
+section{padding-top:14px;margin-bottom:52px;scroll-margin-top:70px}
+h2{
+  font-family:"Golos Text",system-ui,sans-serif;font-weight:700;font-size:27px;line-height:1.18;
+  letter-spacing:-.02em;margin:0 0 4px;text-wrap:balance
+}
+.sec-sub{font-family:"Golos Text",system-ui,sans-serif;font-size:13.5px;color:var(--ink-2);margin:0 0 22px;line-height:1.45}
+h3{
+  font-family:"Golos Text",system-ui,sans-serif;font-weight:600;font-size:18px;
+  letter-spacing:-.01em;margin:30px 0 8px;text-wrap:balance
+}
+h4{font-family:"Golos Text",system-ui,sans-serif;font-weight:600;font-size:15px;margin:20px 0 6px}
+p{margin:0 0 13px;max-width:66ch}
+ul,ol{margin:0 0 14px;padding-left:20px;max-width:66ch}
+li{margin-bottom:5px}
+li::marker{color:var(--ink-3)}
+strong{font-weight:700}
+em{font-style:italic}
+code,.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.87em;background:var(--surface-2);padding:1px 4px}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+a{color:var(--accent-ink);text-underline-offset:2px}
+
+/* ---- блоки-маркеры ---- */
+.b{
+  background:var(--surface);border:1px solid var(--line);
+  border-top:3px solid var(--line-strong);
+  padding:13px 16px 14px;margin:16px 0;max-width:70ch
+}
+.b > :last-child{margin-bottom:0}
+.b-l{
+  font-family:"Golos Text",system-ui,sans-serif;font-size:10.5px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.12em;display:block;margin-bottom:6px
+}
+.b.no{border-top-color:var(--danger);background:var(--danger-wash)}
+.b.no .b-l{color:var(--danger)}
+.b.house{border-top-color:var(--accent);background:var(--accent-wash)}
+.b.house .b-l{color:var(--accent-ink)}
+.b.care{border-top-color:var(--care);background:var(--care-wash)}
+.b.care .b-l{color:var(--care)}
+.b.money{border-top-color:var(--money);background:var(--money-wash)}
+.b.money .b-l{color:var(--money)}
+.b.check{border-top-color:var(--ok);background:var(--ok-wash)}
+.b.check .b-l{color:var(--ok)}
+
+/* ---- таблицы ---- */
+.tw{overflow-x:auto;margin:16px 0;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-family:"Golos Text",system-ui,sans-serif;font-size:13.5px;background:var(--surface)}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.4}
+th{
+  font-weight:600;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--ink-2);background:var(--surface-2);white-space:nowrap;border-bottom:1px solid var(--line-strong)
+}
+tbody tr:last-child td{border-bottom:0}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;font-family:"JetBrains Mono",monospace;font-size:12.5px;white-space:nowrap}
+tfoot td{font-weight:600;background:var(--surface-2);border-top:1px solid var(--line-strong)}
+
+/* ---- мои решения ---- */
+.mine{
+  background:var(--surface-2);border:1px dashed var(--line-strong);
+  padding:12px 14px;margin:16px 0;max-width:70ch
+}
+.mine-l{
+  font-family:"Golos Text",system-ui,sans-serif;font-size:10.5px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);display:block;margin-bottom:8px
+}
+.mine label{display:block;font-family:"Golos Text",system-ui,sans-serif;font-size:13px;color:var(--ink-2);margin-bottom:3px}
+.mine textarea,.mine input{
+  width:100%;font-family:"Golos Text",system-ui,sans-serif;font-size:14px;
+  background:var(--surface);color:var(--ink);border:1px solid var(--line-strong);
+  padding:7px 9px;margin-bottom:10px;border-radius:0;resize:vertical
+}
+.mine textarea{min-height:56px;line-height:1.45}
+.mine > :last-child{margin-bottom:0}
+
+/* ---- калькулятор ---- */
+.calc{background:var(--surface);border:1px solid var(--line-strong);padding:14px 16px;margin:18px 0}
+.calc .row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-bottom:10px}
+.calc .f{display:flex;flex-direction:column;gap:3px}
+.calc label{font-family:"Golos Text",system-ui,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-3)}
+.calc input{
+  width:96px;font-family:"JetBrains Mono",monospace;font-size:14px;
+  background:var(--bg);color:var(--ink);border:1px solid var(--line-strong);padding:6px 8px;border-radius:0
+}
+.out{
+  font-family:"JetBrains Mono",monospace;font-size:14px;line-height:1.7;
+  background:var(--surface-2);padding:11px 13px;border-left:3px solid var(--accent);margin-top:4px
+}
+.out b{color:var(--accent-ink);font-weight:600}
+
+/* ---- фигуры ---- */
+figure{margin:20px 0;padding:0}
+figure svg{max-width:100%;height:auto;display:block;color:var(--ink-2)}
+figcaption{
+  font-family:"Golos Text",system-ui,sans-serif;font-size:12px;color:var(--ink-3);
+  margin-top:8px;line-height:1.45;max-width:66ch
+}
+.figwrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);padding:16px}
+
+/* ---- прочее ---- */
+.tag{
+  display:inline-block;font-family:"Golos Text",system-ui,sans-serif;font-size:10.5px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.08em;padding:2px 6px;border:1px solid currentColor;margin-right:5px
+}
+.tag.q{color:var(--danger)}
+.lead{font-size:18.5px;line-height:1.55;color:var(--ink);max-width:64ch}
+.hit{background:var(--accent-wash);outline:2px solid var(--accent)}
+.dim{display:none !important}
+.note{font-family:"Golos Text",system-ui,sans-serif;font-size:12.5px;color:var(--ink-3);max-width:66ch;line-height:1.5}
+
+/* ---- адаптив ---- */
+@media (max-width:860px){
+  .shell{grid-template-columns:1fr}
+  nav.side{
+    position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line-strong);
+    padding:14px 20px 18px;display:none
+  }
+  nav.side.open{display:block}
+  nav.side ol{columns:2;column-gap:18px}
+  .navtoggle{display:inline-block}
+  main{padding:20px 20px 100px}
+  .passport{display:none}
+  .search{width:130px}
+  h2{font-size:23px}
+  body{font-size:16.5px}
+}
+
+/* ---- печать ---- */
+@media print{
+  .top,nav.side,.mine textarea,.calc{break-inside:avoid}
+  .top,nav.side,.top-tools{display:none !important}
+  .shell{display:block;max-width:none}
+  main{padding:0}
+  body{background:#fff;color:#000;font-size:11pt}
+  section{page-break-inside:auto;margin-bottom:24px}
+  h2{page-break-after:avoid}
+  .b,.tw,figure{page-break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <div class="brand">Ремонт на <span>Дзержинце</span></div>
+    <div class="passport">
+      <span><b>1-464</b> 1976</span>
+      <span><b>5</b>/9 этаж</span>
+      <span><b>43,6</b> м²</span>
+      <span>2 комн. · с/у разд.</span>
+      <span><b>газ</b></span>
+    </div>
+    <div class="top-tools">
+      <button class="btn navtoggle" id="navtoggle" aria-expanded="false">Разделы</button>
+      <input class="search" id="q" type="search" placeholder="Поиск по справочнику" aria-label="Поиск по справочнику">
+      <button class="btn" id="exp" title="Сохранить мои данные в файл">Выгрузить</button>
+      <button class="btn" id="imp" title="Загрузить мои данные из файла">Загрузить</button>
+      <button class="btn" onclick="window.print()">Печать</button>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+<nav class="side" id="nav" aria-label="Разделы справочника">
+  <p class="nav-title">Разделы</p>
+  <ol>
+    <li><a href="#obj">Объект: что значит 1-464</a></li>
+    <li><a href="#order">Порядок работ</a></li>
+    <li><a href="#before">Решения до старта</a></li>
+    <li><a href="#demo">Демонтаж</a></li>
+    <li><a href="#el">Электрика</a></li>
+    <li><a href="#light">Освещение</a></li>
+    <li><a href="#water">Сантехника</a></li>
+    <li><a href="#bath">Санузел</a></li>
+    <li><a href="#kitchen">Кухня и газ</a></li>
+    <li><a href="#air">Вентиляция, окна, тепло</a></li>
+    <li><a href="#rough">Черновые работы</a></li>
+    <li><a href="#finish">Чистовая отделка</a></li>
+    <li><a href="#hidden">Скрытые работы</a></li>
+    <li><a href="#money">Деньги</a></li>
+    <li><a href="#calc">Объёмы и расчёты</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- ========== 1. ОБЪЕКТ ========== -->
+<section id="obj">
+  <h2>Объект: что значит 1-464</h2>
+  <p class="sec-sub">Пушкино, Дзержинец · панельный дом 1976 года · 5 этаж из 9 · 43,6 м², две комнаты, санузел раздельный, газовая плита</p>
+
+  <p class="lead">Половина решений в этой квартире продиктована не вкусом и не бюджетом, а конструкцией дома. Серия 1-464 — крупнопанельный дом с <strong>поперечными несущими стенами</strong>: несущими являются не только наружные панели, но и часть межкомнатных. Это меняет всё: что можно сломать, где пройдёт проводка, какой толщины будет пол.</p>
+
+  <div class="b house">
+    <span class="b-l">Проверить в первую очередь</span>
+    <p>Базовая 1-464 — пятиэтажка; девятиэтажными были поздние модификации семейства. Точную серию и конструктивную схему <strong>вашего</strong> дома нужно подтвердить до проектных решений: технический паспорт дома в управляющей компании, поэтажный план и экспликация в БТИ, отметка серии в ЕГРН или на портале «Дома Москвы и области». От этого зависит, какие стены трогать нельзя.</p>
+  </div>
+
+  <h3>Что несущее, а что нет</h3>
+  <p>В домах этого семейства работает поперечная схема: перекрытия опираются на внутренние поперечные панели, идущие от фасада к фасаду. Проверять на месте нужно так:</p>
+  <ul>
+    <li><strong>Толщина стены.</strong> Несущая внутренняя панель обычно 12–14 см, межкомнатная перегородка — 6–8 см, гипсолитовая перегородка санузла — около 8 см вместе с отделкой. Замерить в дверном проёме рулеткой.</li>
+    <li><strong>Звук.</strong> Перегородка звенит и отдаёт пустотой, несущая панель отвечает глухо и коротко.</li>
+    <li><strong>Сверление.</strong> В перегородку бур идёт легко, в бетонной панели упирается в арматуру.</li>
+    <li><strong>План БТИ.</strong> На поэтажном плане несущие обозначены толще; но план не заменяет натурный замер — при перепланировках предыдущих владельцев он врёт.</li>
+  </ul>
+
+  <div class="b no">
+    <span class="b-l">Нельзя</span>
+    <ul>
+      <li>Делать проёмы и ниши в несущих панелях без проекта организации с допуском СРО и согласования.</li>
+      <li>Штробить несущие панели горизонтально — под запретом на любую глубину: горизонтальный рез перерезает рабочую арматуру.</li>
+      <li>Сверлить панель насквозь под подрозетник — толщина не позволяет, риск попасть в соседнюю квартиру и в арматуру.</li>
+      <li>Разбирать вентиляционные блоки на кухне и в санузле и зашивать их наглухо.</li>
+    </ul>
+  </div>
+
+  <h3>Пять особенностей, которые определят смету</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Особенность</th><th>Что это значит на практике</th></tr></thead>
+    <tbody>
+      <tr><td><b>Проводка почти без штроб</b></td><td>Кабель идёт по потолку под натяжным полотном, вертикальными спусками в слое штукатурки и в стяжке пола. Это норма для панели, а не халтура — но требует, чтобы электрик знал схему заранее.</td></tr>
+      <tr><td><b>Ограниченная нагрузка на перекрытие</b></td><td>Толстая мокрая стяжка по всей квартире добавляет тонны веса. Решение — полусухая стяжка минимальной толщины, наливной пол по существующему основанию или сборный пол по керамзиту.</td></tr>
+      <tr><td><b>Полы по лагам с засыпкой</b></td><td>Под досками обычно шлак или керамзит. Демонтаж даёт неожиданно большой объём мусора и открывает вопрос: восстанавливать засыпку или уходить на стяжку.</td></tr>
+      <tr><td><b>Возможная сантехкабина</b></td><td>В домах этой эпохи санузел часто собран из готового железобетонного блока. Его демонтаж — отдельная работа с согласованием, а не «снесли перегородку».</td></tr>
+      <tr><td><b>Двухпроводная сеть без заземления</b></td><td>Ввод в квартиру — алюминий, защитного проводника нет. Это главный вопрос всей электрики, разобран в разделе «Электрика».</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="b care">
+    <span class="b-l">Плюсы вашей ситуации</span>
+    <p>Пятый этаж из девяти — удачно: не крыша с риском протечек и не первый с холодным полом; напор воды нормальный; в девятиэтажном доме есть лифт, а значит подъём материалов и вывоз мусора обойдутся заметно дешевле, чем в пятиэтажке без лифта.</p>
+  </div>
+
+  <h3>Согласования в Пушкино</h3>
+  <p>Перепланировка в Московской области согласуется через администрацию городского округа Пушкинский (услуга доступна на региональном портале госуслуг). Что попадает под согласование:</p>
+  <ul>
+    <li>Объединение раздельного санузла или перенос его границ — это перепланировка, обычно согласуемая, но требующая проекта и обязательной гидроизоляции.</li>
+    <li>Любые проёмы в несущих панелях — проект с расчётом усиления.</li>
+    <li>Перенос кухни или газового оборудования — практически нереально; исходите из того, что плита останется на месте.</li>
+    <li>Замена радиаторов и участков стояков — через управляющую компанию, с заявкой на отключение.</li>
+  </ul>
+  <p class="note">Замена проводки внутри квартиры, отделка, замена сантехприборов на прежних местах и некапитальных перегородок согласования не требуют.</p>
+
+  <div class="mine">
+    <span class="mine-l">Мои решения</span>
+    <label>Серия и конструктив подтверждены (чем, когда)</label>
+    <textarea data-k="obj-series" placeholder="Например: техпаспорт в УК от 12.09, схема поперечно-несущая, внутренние панели 14 см"></textarea>
+    <label>Стояки ХВС / ГВС / канализация: меняем или уже менялись по капремонту</label>
+    <textarea data-k="obj-risers" placeholder="Уточнить в УК: год последнего капремонта инженерных сетей"></textarea>
+    <label>Окна, батареи, входная дверь — меняем?</label>
+    <textarea data-k="obj-windows" placeholder=""></textarea>
+    <label>Мама живёт в квартире во время ремонта?</label>
+    <input data-k="obj-live" placeholder="Да / нет / частично">
+  </div>
+</section>
+
+<!-- ========== 2. ПОРЯДОК ========== -->
+<section id="order">
+  <h2>Порядок работ</h2>
+  <p class="sec-sub">Последовательность не традиция, а физика: каждый следующий этап пачкает, сверлит или нагружает предыдущий</p>
+
+  <p>Общее правило одно: <strong>сверху вниз и от грязного к чистому</strong>. Всё, что пылит и мокнет, делается до того, что можно испортить. Ниже — цепочка для вашей квартиры, с указанием, что реально идёт параллельно.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th class="n">№</th><th>Этап</th><th>Почему здесь</th><th>Ориентир</th></tr></thead>
+    <tbody>
+      <tr><td class="n">1</td><td><b>Замеры и решения</b></td><td>Проект электрики и сантехники нельзя рисовать, не зная габаритов техники, мебели и кухни</td><td class="n">2–4 нед.</td></tr>
+      <tr><td class="n">2</td><td><b>Демонтаж, вывоз</b></td><td>Полы, старая плитка, перегородки санузла, старая проводка и трубы</td><td class="n">5–10 дн.</td></tr>
+      <tr><td class="n">3</td><td><b>Окна и входная дверь</b></td><td>Монтаж пылит и требует доступа к откосам; ставятся до отделки, откосы — позже</td><td class="n">1–2 дн.</td></tr>
+      <tr><td class="n">4</td><td><b>Перегородки, кладка</b></td><td>Новая геометрия должна встать до того, как в неё поведут трассы</td><td class="n">3–6 дн.</td></tr>
+      <tr><td class="n">5</td><td><b>Электрика: трассы и щит</b></td><td>Самый «резательный» этап; после него стены не трогают</td><td class="n">7–12 дн.</td></tr>
+      <tr><td class="n">6</td><td><b>Сантехника: разводка</b></td><td>Идёт параллельно с электрикой, но точки должны быть согласованы между собой</td><td class="n">4–7 дн.</td></tr>
+      <tr><td class="n">7</td><td><b>Фотофиксация скрытых работ</b></td><td>Последний момент, когда трассы видно. Пропустить нельзя</td><td class="n">1 дн.</td></tr>
+      <tr><td class="n">8</td><td><b>Гидроизоляция мокрых зон</b></td><td>До стяжки и до плитки, с заходом на стены</td><td class="n">1–2 дн.</td></tr>
+      <tr><td class="n">9</td><td><b>Стяжка пола</b></td><td>После неё в полу ничего не проложить</td><td class="n">2–3 дн. + сушка</td></tr>
+      <tr><td class="n">10</td><td><b>Выравнивание стен, потолки</b></td><td>Параллельно сушке стяжки; закладные под свет — до натяжного полотна</td><td class="n">10–20 дн.</td></tr>
+      <tr><td class="n">11</td><td><b>Плитка в санузлах и на кухне</b></td><td>Мокро и пыльно; до чистовых полов в комнатах</td><td class="n">7–12 дн.</td></tr>
+      <tr><td class="n">12</td><td><b>Покраска, обои</b></td><td>После плитки, до полов и дверей</td><td class="n">7–14 дн.</td></tr>
+      <tr><td class="n">13</td><td><b>Чистовые полы, двери, плинтус</b></td><td>Только по сухому основанию — по замеру влажности, не по календарю</td><td class="n">5–8 дн.</td></tr>
+      <tr><td class="n">14</td><td><b>Установка приборов и механизмов</b></td><td>Розетки, выключатели, светильники, сантехника, полотенцесушитель</td><td class="n">3–5 дн.</td></tr>
+      <tr><td class="n">15</td><td><b>Кухня, мебель, приёмка, уборка</b></td><td>Кухню заказывают на этапе 1, ставят здесь</td><td class="n">3–7 дн.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Сроки — чистое рабочее время без простоев и сушки. Реальный календарь при подрядчиках по этапам растягивается в полтора-два раза за счёт стыков между бригадами.</p>
+
+  <h3>Что можно вести параллельно</h3>
+  <ul>
+    <li>Электрику и сантехнику — если точки согласованы на одной схеме и бригады не мешают друг другу в санузле.</li>
+    <li>Выравнивание стен в комнатах — пока сохнет стяжка.</li>
+    <li>Плитку в санузле — пока красят комнаты, если санузел уже закрыт от пыли.</li>
+  </ul>
+
+  <div class="b no">
+    <span class="b-l">Типовые ошибки очередности</span>
+    <ul>
+      <li>Кухню заказывают в конце. Гарнитур едет 4–8 недель, а розетки под встройку размечают на этапе 5 — по чертежу кухни, которого ещё нет.</li>
+      <li>Полы кладут по календарю, а не по влажности основания. Ламинат вздувается, паркет выгибает.</li>
+      <li>Двери ставят до стяжки — потом их подрезают или меняют.</li>
+      <li>Натяжной потолок натягивают до того, как отверстия под светильники и закладные согласованы. Переделка стоит как сам потолок.</li>
+      <li>Окна ставят в конце — монтажная пена и пыль летят на готовую отделку.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== 3. РЕШЕНИЯ ДО СТАРТА ========== -->
+<section id="before">
+  <h2>Решения до старта</h2>
+  <p class="sec-sub">Всё, что должно быть выбрано раньше, чем электрик возьмёт перфоратор</p>
+
+  <p class="lead">Главная причина перерасхода в ремонте — не дорогие материалы, а решения, принятые поздно. Каждое решение из таблицы ниже блокирует конкретный этап: если оно не принято вовремя, бригада либо стоит, либо делает наугад, а потом переделывает за ваш счёт.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Решение</th><th>Что блокирует</th><th>Крайний срок</th></tr></thead>
+    <tbody>
+      <tr><td><b>Чертёж кухни с точками подключения</b></td><td>Разметку розеток и вывод воды на кухне</td><td>До этапа электрики</td></tr>
+      <tr><td><b>Вся встраиваемая техника с габаритами</b></td><td>Розетки, вентиляцию, ширину шкафов</td><td>До чертежа кухни</td></tr>
+      <tr><td><b>Ванна или душ в ванной</b></td><td>Гидроизоляцию, разводку, трап, закладные под поручни</td><td>До сантехники</td></tr>
+      <tr><td><b>Модели унитаза и смесителей</b></td><td>Высоту и вылет выводов, тип инсталляции</td><td>До сантехники</td></tr>
+      <tr><td><b>Схема освещения по комнатам</b></td><td>Группы света, выключатели, закладные в потолке</td><td>До электрики</td></tr>
+      <tr><td><b>Расстановка мебели и кровати</b></td><td>Розетки у изголовья, проходные выключатели</td><td>До электрики</td></tr>
+      <tr><td><b>Стиральная машина: где стоит</b></td><td>Отдельную линию, вывод воды и слив</td><td>До электрики</td></tr>
+      <tr><td><b>Водонагреватель: нужен ли</b></td><td>Линию питания и место крепления</td><td>До электрики</td></tr>
+      <tr><td><b>Кондиционер: сколько блоков и где</b></td><td>Трассу и дренаж — закладываются в стены до отделки</td><td>До черновых работ</td></tr>
+      <tr><td><b>Тип потолка в каждой комнате</b></td><td>Способ прокладки кабеля и высоту помещения</td><td>До электрики</td></tr>
+      <tr><td><b>Напольное покрытие</b></td><td>Толщину стяжки и высоту дверных полотен</td><td>До стяжки</td></tr>
+      <tr><td><b>Двери: открывание и размеры</b></td><td>Ширину проёмов, направление, пороги</td><td>До перегородок</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="b money">
+    <span class="b-l">Длинные поставки</span>
+    <p>Заказывать в первые две недели, иначе они станут причиной простоя: кухонный гарнитур (4–8 недель), межкомнатные и входная двери (3–6 недель), окна (2–4 недели), нестандартная плитка и сантехника под заказ (3–8 недель), столешница (3–5 недель).</p>
+  </div>
+
+  <h3>Замеры, которые нужно сделать самому</h3>
+  <ul>
+    <li>Размеры каждого помещения по трём высотам — в панельных домах стены расходятся.</li>
+    <li>Высота потолка в четырёх углах каждой комнаты: перепад плит перекрытия здесь обычная вещь.</li>
+    <li>Диагонали комнат — покажут непрямые углы, важно для плитки и кухни.</li>
+    <li>Точное положение стояков, вентблоков, газовой трубы и счётчика.</li>
+    <li>Глубина и ширина оконных проёмов, высота подоконника.</li>
+  </ul>
+
+  <div class="b check">
+    <span class="b-l">Узнать в управляющей компании до начала</span>
+    <ul>
+      <li>Выделенная мощность на квартиру — цифра из договора, а не со слов электрика.</li>
+      <li>Проводилась ли реконструкция электросети дома и есть ли в стояке защитный проводник.</li>
+      <li>Когда в последний раз менялись стояки ХВС, ГВС и канализации, входит ли дом в программу капремонта в ближайшие годы. Менять свою разводку за год до планового капремонта стояков — выброшенные деньги.</li>
+      <li>Порядок и стоимость отключения стояков, режим шумных работ, правила вывоза мусора и пользования лифтом.</li>
+    </ul>
+  </div>
+
+  <div class="mine">
+    <span class="mine-l">Мои решения</span>
+    <label>Выделенная мощность на квартиру, кВт</label>
+    <input data-k="pre-power" placeholder="узнать в УК / договоре энергоснабжения">
+    <label>Есть ли защитный проводник в стояке (реконструкция сети)</label>
+    <input data-k="pre-pe" placeholder="да / нет / уточняется">
+    <label>Что уже заказано и когда приедет</label>
+    <textarea data-k="pre-orders" placeholder="кухня — ; двери — ; окна — ; плитка — "></textarea>
+  </div>
+</section>
+
+<!-- ========== 4. ДЕМОНТАЖ ========== -->
+<section id="demo">
+  <h2>Демонтаж</h2>
+  <p class="sec-sub">Самый недооценённый по объёму и самый регламентированный по запретам этап</p>
+
+  <div class="b no">
+    <span class="b-l">Не трогать ни при каких условиях</span>
+    <ul>
+      <li>Несущие поперечные панели — проёмы, ниши, горизонтальные штробы.</li>
+      <li>Вентиляционные блоки на кухне и в санузле, включая транзитные каналы соседей сверху и снизу.</li>
+      <li>Газовую трубу и счётчик — любое вмешательство только силами газовой службы.</li>
+      <li>Стояки без согласованного с УК отключения.</li>
+      <li>Плиты перекрытия — сквозные отверстия под трубы и вытяжку.</li>
+    </ul>
+  </div>
+
+  <h3>Сколько будет мусора</h3>
+  <p>Для 43,6 м² с полной сломкой полов, плитки и перегородок санузла реалистичный объём — <strong>10–18 м³</strong>, из них большая часть по весу приходится на засыпку под лагами и старую стяжку. Это 3–6 рейсов газели или один контейнер 20 м³. Планируйте заранее: место под контейнер во дворе согласуется с УК, а вынос через подъезд — с защитой лифта и лестницы.</p>
+
+  <div class="b money">
+    <span class="b-l">Где здесь деньги</span>
+    <p>Демонтаж с вывозом в Подмосковье считают либо за квадратный метр квартиры, либо за кубометр мусора с подъёмом. Ловушка в том, что смету обычно дают «за демонтаж», а вывоз, мешки, погрузку и подъём на этаж добавляют потом. Требуйте цену за весь цикл: сломали — упаковали — спустили — вывезли — сдали помещение под метлу.</p>
+  </div>
+
+  <h3>Сюрпризы, к которым готовиться</h3>
+  <ul>
+    <li><strong>Под полами не то, что ожидалось.</strong> Вместо ровной плиты — перепад, старая проливка, шлак, иногда следы протечек. От этого зависит выбор стяжки.</li>
+    <li><strong>Сантехкабина.</strong> Если санузел собран из железобетонного блока, демонтаж — это отдельная позиция сметы и отдельное согласование.</li>
+    <li><strong>Старая проводка в панели.</strong> В плитах перекрытия проложены каналы с алюминиевым кабелем. Их можно частично использовать для протяжки нового, если каналы проходимы — это экономия на потолочной прокладке.</li>
+    <li><strong>Асбестосодержащие материалы</strong> в старых полах и трубах. При обнаружении — не крошить всухую, смачивать, работать в респираторе.</li>
+  </ul>
+
+  <div class="b care">
+    <span class="b-l">Защита и пыль</span>
+    <p>Демонтаж бетона даёт мелкодисперсную пыль, которая садится на весь подъезд и проникает к соседям. Минимум: плёнка на двери с молнией, влажная уборка подъезда ежедневно, строительный пылесос при резке, предупреждение соседей до начала. Это не вежливость, а способ не получить жалобу и остановку работ. Если мама живёт в квартире — на время демонтажа и черновых работ жить в ней нельзя.</p>
+  </div>
+</section>
+
+<!-- ========== 5. ЭЛЕКТРИКА ========== -->
+<section id="el">
+  <h2>Электрика</h2>
+  <p class="sec-sub">Самый дорогой раздел по цене ошибки: всё замуровывается на 25 лет вперёд</p>
+
+  <p class="lead">В доме 1976 года электрика решает две задачи одновременно: обеспечить современную нагрузку и компенсировать то, чего в этом доме нет — защитного заземления. Второе важнее и почти всегда делается неправильно.</p>
+
+  <h3>Сколько у вас реально киловатт</h3>
+  <p>В домах этой эпохи с газовой плитой на квартиру выделяют немного — как правило <strong>3–5 кВт</strong>. Точную цифру берут из договора энергоснабжения или в управляющей компании, а не со слов электрика и не по номиналу автомата на площадке (он мог быть заменён самовольно).</p>
+  <p>Что это значит на практике: чайник 2 кВт, стиральная машина в режиме нагрева 2 кВт и водонагреватель 2 кВт вместе уже выбивают ввод. Планировать нужно от реальной цифры.</p>
+
+  <div class="b no">
+    <span class="b-l">Что не влезет</span>
+    <p>Проточный водонагреватель (5–8 кВт), электрическая варочная панель, тёплые полы большой площади, мощный духовой шкаф вместе с остальной нагрузкой. Накопительный водонагреватель на 1,5–2 кВт — влезет. Увеличение выделенной мощности оформляется заявкой в сетевую организацию, занимает месяцы и в старом доме часто невозможно из-за ограничений стояка.</p>
+  </div>
+
+  <h3>Заземления нет — и это главный вопрос раздела</h3>
+  <p>Старая сеть в таких домах двухпроводная: фаза и совмещённый рабоче-защитный проводник. Отдельного защитного проводника до квартиры не доходит. Отсюда — жёсткие правила.</p>
+
+  <div class="b no">
+    <span class="b-l">Категорически нельзя</span>
+    <ul>
+      <li><strong>Соединять заземляющий контакт розетки с рабочим нулём.</strong> Это популярная «экономия», которую предлагают многие электрики. При обрыве нуля в стояке — обычная авария для дома этого возраста — корпуса всех приборов в квартире окажутся под фазным напряжением.</li>
+      <li>Заземлять на трубы водопровода, отопления, на арматуру панелей и на батареи.</li>
+      <li>Самовольно разделять совмещённый проводник на защитный и рабочий внутри квартиры.</li>
+    </ul>
+  </div>
+
+  <div class="b check">
+    <span class="b-l">Как правильно</span>
+    <ol>
+      <li><strong>Сначала выяснить в УК</strong>, проводилась ли реконструкция электросети дома и есть ли в стояке защитный проводник. Если есть — делаете нормальную трёхпроводную схему, вопрос закрыт.</li>
+      <li><strong>Если нет</strong> — всё равно прокладываете трёхжильный кабель. Третья жила остаётся неподключённой, изолируется и подписывается в щите. Когда дом реконструируют, электрика будет готова без вскрытия стен.</li>
+      <li><strong>Защиту людей обеспечивает УЗО.</strong> Ключевой факт: устройство защитного отключения работает и без защитного проводника — оно реагирует на утечку тока через человека и отключает линию. Это законное и правильное решение для такого дома.</li>
+      <li>Розетки ставите с заземляющим контактом — под будущую трёхпроводку.</li>
+    </ol>
+  </div>
+
+  <h3>Квартирный щит</h3>
+  <p>Щит переносится в квартиру, в прихожую; на площадке остаются счётчик и вводной автомат. Так вы получаете доступ к своей автоматике, не выходя на лестницу, и возможность нормально её обслуживать.</p>
+
+  <div class="figwrap">
+  <figure>
+  <svg viewBox="0 0 740 300" role="img" aria-label="Однолинейная схема: от стояка через счётчик на площадке и вводной автомат к реле напряжения, противопожарному УЗО и шине групповых линий">
+    <defs>
+      <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 1 L 9 5 L 0 9 z" fill="currentColor"></path>
+      </marker>
+    </defs>
+    <g font-family="Golos Text, sans-serif" font-size="11.5" fill="currentColor">
+      <!-- верхний ряд -->
+      <rect x="10" y="34" width="104" height="44" fill="none" stroke="currentColor" stroke-width="1"></rect>
+      <text x="62" y="52" text-anchor="middle">Стояк дома</text>
+      <text x="62" y="67" text-anchor="middle" font-size="10.5" opacity=".7">2 провода</text>
+
+      <line x1="114" y1="56" x2="146" y2="56" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar)"></line>
+
+      <rect x="150" y="34" width="104" height="44" fill="none" stroke="currentColor" stroke-width="1"></rect>
+      <text x="202" y="52" text-anchor="middle">Счётчик</text>
+      <text x="202" y="67" text-anchor="middle" font-size="10.5" opacity=".7">на площадке</text>
+
+      <line x1="254" y1="56" x2="286" y2="56" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar)"></line>
+
+      <rect x="290" y="34" width="104" height="44" fill="none" stroke="currentColor" stroke-width="1"></rect>
+      <text x="342" y="52" text-anchor="middle">Вводной</text>
+      <text x="342" y="67" text-anchor="middle" font-size="10.5" opacity=".7">автомат</text>
+
+      <line x1="394" y1="56" x2="426" y2="56" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar)"></line>
+
+      <rect x="430" y="34" width="104" height="44" fill="none" stroke="var(--accent)" stroke-width="1.6"></rect>
+      <text x="482" y="52" text-anchor="middle" fill="var(--accent-ink)" font-weight="600">Реле</text>
+      <text x="482" y="67" text-anchor="middle" font-size="10.5" fill="var(--accent-ink)">напряжения</text>
+
+      <line x1="534" y1="56" x2="566" y2="56" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar)"></line>
+
+      <rect x="570" y="34" width="118" height="44" fill="none" stroke="currentColor" stroke-width="1"></rect>
+      <text x="629" y="52" text-anchor="middle">УЗО 300 мА</text>
+      <text x="629" y="67" text-anchor="middle" font-size="10.5" opacity=".7">противопожарное</text>
+
+      <!-- спуск на шину -->
+      <path d="M 629 78 L 629 108 L 70 108 L 70 132" fill="none" stroke="currentColor" stroke-width="1.2"></path>
+      <line x1="70" y1="132" x2="700" y2="132" stroke="currentColor" stroke-width="2.4"></line>
+      <text x="704" y="136" font-size="10.5" opacity=".7">шина</text>
+
+      <!-- группы -->
+      <g stroke="currentColor" stroke-width="1.2">
+        <line x1="70" y1="132" x2="70" y2="176"></line>
+        <line x1="196" y1="132" x2="196" y2="176"></line>
+        <line x1="322" y1="132" x2="322" y2="176"></line>
+        <line x1="448" y1="132" x2="448" y2="176"></line>
+        <line x1="574" y1="132" x2="574" y2="176"></line>
+      </g>
+      <g>
+        <rect x="16" y="176" width="108" height="52" fill="none" stroke="currentColor"></rect>
+        <text x="70" y="196" text-anchor="middle">Свет</text>
+        <text x="70" y="212" text-anchor="middle" font-size="10.5" opacity=".7">2 группы</text>
+        <rect x="142" y="176" width="108" height="52" fill="none" stroke="currentColor"></rect>
+        <text x="196" y="196" text-anchor="middle">Розетки</text>
+        <text x="196" y="212" text-anchor="middle" font-size="10.5" opacity=".7">комнаты</text>
+        <rect x="268" y="176" width="108" height="52" fill="none" stroke="currentColor"></rect>
+        <text x="322" y="196" text-anchor="middle">Кухня</text>
+        <text x="322" y="212" text-anchor="middle" font-size="10.5" opacity=".7">2 группы</text>
+        <rect x="394" y="176" width="108" height="52" fill="none" stroke="var(--accent)" stroke-width="1.6"></rect>
+        <text x="448" y="196" text-anchor="middle" fill="var(--accent-ink)" font-weight="600">Мокрые зоны</text>
+        <text x="448" y="212" text-anchor="middle" font-size="10.5" fill="var(--accent-ink)">УЗО 10 мА</text>
+        <rect x="520" y="176" width="108" height="52" fill="none" stroke="currentColor" stroke-dasharray="4 3"></rect>
+        <text x="574" y="196" text-anchor="middle">Резерв</text>
+        <text x="574" y="212" text-anchor="middle" font-size="10.5" opacity=".7">свободные места</text>
+      </g>
+      <text x="16" y="256" font-size="11" opacity=".75">Каждая розеточная группа — через УЗО 30 мА. Мокрые зоны — 10 мА.</text>
+      <text x="16" y="274" font-size="11" fill="var(--accent-ink)">Защитного проводника от стояка нет: безопасность держится на УЗО и реле напряжения.</text>
+    </g>
+  </svg>
+  <figcaption>Схема квартирного щита для сети без защитного проводника. Реле напряжения и УЗО здесь не «дополнительная опция», а замена отсутствующему заземлению.</figcaption>
+  </figure>
+  </div>
+
+  <h4>Что ставить в щит</h4>
+  <ul>
+    <li><strong>Реле напряжения.</strong> В старых домах перекос фаз и обрыв нуля — реальный сценарий, а не теория. Стоит немного, спасает всю технику разом.</li>
+    <li><strong>УЗО 30 мА на розеточные группы.</strong> Одно УЗО на две-три группы дешевле, чем дифавтомат на каждую линию, и при ограниченном бюджете это правильный компромисс.</li>
+    <li><strong>УЗО 10 мА на мокрые зоны</strong> — ванная, стиральная машина, водонагреватель. Здесь экономить нельзя.</li>
+    <li><strong>Противопожарное УЗО 100–300 мА</strong> на вводе — при возможности бюджета.</li>
+    <li><strong>Запас модулей.</strong> Щит берут на треть больше расчёта: добавить линию позже в забитый щит невозможно.</li>
+    <li><strong>Однолинейная схема</strong> в кармане щита и подписи на каждом автомате. Через пять лет это единственный способ понять, что где.</li>
+  </ul>
+  <p class="note">Устройство защиты от импульсных перенапряжений при кабельном вводе в городской застройке и ограниченном бюджете — низкий приоритет, можно отложить.</p>
+
+  <h3>Группы линий для этой квартиры</h3>
+  <p>Газовая плита освобождает главную силовую линию — это заметно упрощает щит. Ориентировочный состав:</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Линия</th><th>Кабель</th><th class="n">Автомат</th><th>Защита</th></tr></thead>
+    <tbody>
+      <tr><td>Свет: две комнаты</td><td class="mono">3×1,5</td><td class="n">10 A</td><td>—</td></tr>
+      <tr><td>Свет: кухня, прихожая, санузел</td><td class="mono">3×1,5</td><td class="n">10 A</td><td>—</td></tr>
+      <tr><td>Розетки, комната 1</td><td class="mono">3×2,5</td><td class="n">16 A</td><td>УЗО 30 мА</td></tr>
+      <tr><td>Розетки, комната 2</td><td class="mono">3×2,5</td><td class="n">16 A</td><td>УЗО 30 мА</td></tr>
+      <tr><td>Розетки, прихожая</td><td class="mono">3×2,5</td><td class="n">16 A</td><td>УЗО 30 мА</td></tr>
+      <tr><td>Кухня: рабочая зона, линия 1</td><td class="mono">3×2,5</td><td class="n">16 A</td><td>УЗО 30 мА</td></tr>
+      <tr><td>Кухня: рабочая зона, линия 2</td><td class="mono">3×2,5</td><td class="n">16 A</td><td>УЗО 30 мА</td></tr>
+      <tr><td>Холодильник, отдельно</td><td class="mono">3×2,5</td><td class="n">16 A</td><td>отдельное УЗО</td></tr>
+      <tr><td>Стиральная машина</td><td class="mono">3×2,5</td><td class="n">16 A</td><td><b>УЗО 10 мА</b></td></tr>
+      <tr><td>Водонагреватель (если ставим)</td><td class="mono">3×2,5</td><td class="n">16 A</td><td><b>УЗО 10 мА</b></td></tr>
+      <tr><td>Санузел: розетка и вытяжка</td><td class="mono">3×2,5</td><td class="n">16 A</td><td><b>УЗО 10 мА</b></td></tr>
+      <tr><td>Тёплый пол в ванной</td><td class="mono">3×1,5</td><td class="n">10 A</td><td>УЗО 30 мА</td></tr>
+      <tr><td>Кондиционер</td><td class="mono">3×2,5</td><td class="n">16 A</td><td>УЗО 30 мА</td></tr>
+      <tr><td>Контроллер защиты от протечек</td><td class="mono">3×1,5</td><td class="n">6 A</td><td>—</td></tr>
+      <tr><td><i>Резерв</i></td><td>—</td><td class="n">—</td><td>2 свободных места</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Кабель — только медь, ВВГнг(А)-LS. Итог по модулям: щит на 24–36 мест. Холодильник отдельной линией нужен затем, чтобы срабатывание УЗО в другой комнате не разморозило продукты, пока в квартире никого нет.</p>
+
+  <h3>Как проложить кабель без штроб</h3>
+  <ol>
+    <li><strong>По потолку под натяжным полотном</strong> — основной путь для всех групп. Кабель в гофре крепится к плите, спуски идут вниз к точкам.</li>
+    <li><strong>Вертикальные спуски</strong> — в слое штукатурки или неглубоким вертикальным пазом. Вертикальные штробы ограниченно допустимы, горизонтальные в несущих панелях — нет.</li>
+    <li><strong>В стяжке пола</strong> — для розеточных групп, кабель в защитной трубе, с планом трасс.</li>
+    <li><strong>По заводским каналам в плитах</strong> — если старые каналы проходимы, в них протягивают новый кабель. Экономия на потолочной прокладке.</li>
+  </ol>
+
+  <div class="b no">
+    <span class="b-l">Что должно насторожить в работе электрика</span>
+    <ul>
+      <li>Горизонтальные борозды по несущей панели «чтобы ровно».</li>
+      <li>Скрутки вместо клемм и распаечные коробки, замурованные в стену без доступа.</li>
+      <li>Алюминий, соединённый с медью напрямую.</li>
+      <li>Один кабель 3×2,5 на всю квартиру «с разветвлением по месту».</li>
+      <li>Отказ ставить УЗО с аргументом «здесь же нет заземления».</li>
+    </ul>
+  </div>
+
+  <h3>Розетки и выключатели по комнатам</h3>
+
+  <div class="figwrap">
+  <figure>
+  <svg viewBox="0 0 700 470" role="img" aria-label="Высоты установки: розетки 300 мм по стандарту или 400 мм с поправкой на возраст, выключатели 900 мм, розетки над столешницей 1100 мм, розетка за телевизором 1300 мм">
+    <g font-family="Golos Text, sans-serif" fill="currentColor">
+      <!-- стена -->
+      <rect x="118" y="18" width="546" height="382" fill="none" stroke="currentColor" stroke-width="1" opacity=".35"></rect>
+      <!-- пол -->
+      <line x1="88" y1="400" x2="676" y2="400" stroke="currentColor" stroke-width="2.5"></line>
+      <g stroke="currentColor" stroke-width="1" opacity=".45">
+        <line x1="96" y1="412" x2="108" y2="400"></line><line x1="136" y1="412" x2="148" y2="400"></line>
+        <line x1="176" y1="412" x2="188" y2="400"></line><line x1="216" y1="412" x2="228" y2="400"></line>
+        <line x1="256" y1="412" x2="268" y2="400"></line><line x1="296" y1="412" x2="308" y2="400"></line>
+        <line x1="336" y1="412" x2="348" y2="400"></line><line x1="376" y1="412" x2="388" y2="400"></line>
+        <line x1="416" y1="412" x2="428" y2="400"></line><line x1="456" y1="412" x2="468" y2="400"></line>
+        <line x1="496" y1="412" x2="508" y2="400"></line><line x1="536" y1="412" x2="548" y2="400"></line>
+        <line x1="576" y1="412" x2="588" y2="400"></line><line x1="616" y1="412" x2="628" y2="400"></line>
+      </g>
+      <text x="88" y="428" font-size="10.5" opacity=".7">чистый пол</text>
+      <!-- вертикальная ось -->
+      <line x1="100" y1="400" x2="100" y2="24" stroke="currentColor" stroke-width="1" opacity=".5"></line>
+
+      <!-- отметки -->
+      <g stroke="currentColor" stroke-dasharray="3 3" stroke-width="1" opacity=".55">
+        <line x1="100" y1="316" x2="170" y2="316"></line>
+        <line x1="100" y1="148" x2="170" y2="148"></line>
+        <line x1="100" y1="92"  x2="170" y2="92"></line>
+        <line x1="100" y1="36"  x2="170" y2="36"></line>
+      </g>
+      <line x1="100" y1="288" x2="170" y2="288" stroke="var(--accent)" stroke-width="1.4"></line>
+
+      <g font-family="JetBrains Mono, monospace" font-size="11" opacity=".8">
+        <text x="106" y="312">300</text>
+        <text x="106" y="144">900</text>
+        <text x="106" y="88">1100</text>
+        <text x="106" y="32">1300</text>
+      </g>
+      <text x="106" y="284" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--accent-ink)" font-weight="600">400</text>
+
+      <!-- устройства -->
+      <rect x="170" y="305" width="34" height="22" fill="none" stroke="currentColor" stroke-width="1.2"></rect>
+      <circle cx="187" cy="316" r="5" fill="none" stroke="currentColor"></circle>
+      <text x="216" y="320" font-size="12.5">Розетки — обычный стандарт</text>
+
+      <rect x="170" y="277" width="34" height="22" fill="none" stroke="var(--accent)" stroke-width="1.8"></rect>
+      <circle cx="187" cy="288" r="5" fill="none" stroke="var(--accent)" stroke-width="1.5"></circle>
+      <text x="216" y="292" font-size="12.5" fill="var(--accent-ink)" font-weight="600">Розетки здесь: меньше нагибаться</text>
+
+      <rect x="170" y="137" width="34" height="22" fill="none" stroke="currentColor" stroke-width="1.2"></rect>
+      <line x1="179" y1="153" x2="195" y2="143" stroke="currentColor" stroke-width="1.4"></line>
+      <text x="216" y="152" font-size="12.5">Выключатели, крупная клавиша</text>
+
+      <rect x="170" y="81" width="34" height="22" fill="none" stroke="currentColor" stroke-width="1.2"></rect>
+      <circle cx="187" cy="92" r="5" fill="none" stroke="currentColor"></circle>
+      <text x="216" y="96" font-size="12.5">Розетки над столешницей кухни</text>
+
+      <rect x="170" y="25" width="34" height="22" fill="none" stroke="currentColor" stroke-width="1.2"></rect>
+      <circle cx="187" cy="36" r="5" fill="none" stroke="currentColor"></circle>
+      <text x="216" y="40" font-size="12.5">Розетка и кабели за телевизором</text>
+
+      <text x="88" y="452" font-size="11.5" opacity=".75">Все размеры — от уровня чистого пола, то есть после стяжки и напольного покрытия.</text>
+    </g>
+  </svg>
+  <figcaption>Высоты установки в миллиметрах. Единственное отступление от привычного стандарта — розетки на 400 вместо 300: разница в десять сантиметров ощутимо снижает необходимость наклоняться.</figcaption>
+  </figure>
+  </div>
+
+  <div class="tw"><table>
+    <thead><tr><th>Помещение</th><th>Точка</th><th class="n">Кол-во</th><th class="n">Высота, мм</th><th>Примечание</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="5"><b>Комната мамы</b></td><td>У изголовья кровати, с двух сторон</td><td class="n">4</td><td class="n">600–700</td><td>На уровне тумбы — не нагибаться к полу</td></tr>
+      <tr><td>Телевизор: питание, антенна, интернет</td><td class="n">3+2</td><td class="n">1300</td><td>За панелью, кабели скрыты</td></tr>
+      <tr><td>Свободная стена, пылесос</td><td class="n">2</td><td class="n">400</td><td></td></tr>
+      <tr><td>Выключатель у двери и проходной у кровати</td><td class="n">2</td><td class="n">900</td><td>Свет гасится, не вставая</td></tr>
+      <tr><td>Ночная подсветка с датчиком движения</td><td class="n">1</td><td class="n">200–300</td><td>Маршрут кровать — дверь</td></tr>
+      <tr><td rowspan="4"><b>Вторая комната</b></td><td>Телевизор и медиа</td><td class="n">4+2</td><td class="n">1300</td><td></td></tr>
+      <tr><td>По сторонам дивана</td><td class="n">4</td><td class="n">400</td><td></td></tr>
+      <tr><td>Рабочее место у окна</td><td class="n">4</td><td class="n">400</td><td>Плюс кабель интернета</td></tr>
+      <tr><td>Выключатель у двери, проходной у окна</td><td class="n">2</td><td class="n">900</td><td></td></tr>
+      <tr><td rowspan="6"><b>Кухня</b></td><td>Рабочая зона над столешницей</td><td class="n">5</td><td class="n">1100</td><td>Две независимые линии</td></tr>
+      <tr><td>Холодильник</td><td class="n">1</td><td class="n">300</td><td>Отдельная линия</td></tr>
+      <tr><td>Посудомоечная или стиральная машина</td><td class="n">1</td><td class="n">300</td><td>Не за самой машиной, а рядом</td></tr>
+      <tr><td>Вытяжка</td><td class="n">1</td><td class="n">2000</td><td>За верхним шкафом</td></tr>
+      <tr><td>Под мойкой: фильтр, измельчитель</td><td class="n">1</td><td class="n">400</td><td>С защитой от брызг</td></tr>
+      <tr><td>Выключатель света и подсветки фартука</td><td class="n">2</td><td class="n">900</td><td></td></tr>
+      <tr><td rowspan="3"><b>Прихожая</b></td><td>Общего назначения</td><td class="n">2</td><td class="n">400</td><td>Зарядка, пылесос</td></tr>
+      <tr><td>Выключатель у входа и в конце коридора</td><td class="n">2</td><td class="n">900</td><td>Проходная схема</td></tr>
+      <tr><td>Щит и роутер</td><td class="n">1</td><td class="n">1600</td><td>Ниша или шкаф</td></tr>
+      <tr><td rowspan="4"><b>Ванная</b></td><td>Розетка для фена и машинки</td><td class="n">1–2</td><td class="n">1000–1200</td><td>Влагозащищённая, не ближе 60 см от ванны и душа</td></tr>
+      <tr><td>Стиральная машина (если здесь)</td><td class="n">1</td><td class="n">1000</td><td>Вне зоны брызг, УЗО 10 мА</td></tr>
+      <tr><td>Терморегулятор тёплого пола</td><td class="n">1</td><td class="n">900</td><td>Лучше вынести за дверь</td></tr>
+      <tr><td>Выключатель света и вытяжки</td><td class="n">2</td><td class="n">900</td><td>Снаружи, у двери</td></tr>
+      <tr><td><b>Туалет</b></td><td>Свет и вытяжка</td><td class="n">2</td><td class="n">900</td><td>Выключатель снаружи</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="b care">
+    <span class="b-l">Поправки на возраст</span>
+    <ul>
+      <li>Розетки на 400 мм вместо 300, у кровати — на 600–700.</li>
+      <li>Выключатели с крупной клавишей и подсветкой в темноте — стоят копейки, находятся на ощупь.</li>
+      <li>Проходные выключатели в спальне и коридоре: свет включается там, где входишь, и гасится там, где ложишься.</li>
+      <li>Ночная подсветка с датчиком движения на маршруте спальня — туалет. Это прямая профилактика падений, а падение в этом возрасте меняет жизнь.</li>
+      <li>Розетки в комнате — с защитными шторками, если приходят внуки.</li>
+    </ul>
+  </div>
+
+  <h3>Слаботочка</h3>
+  <ul>
+    <li>Кабель интернета в обе комнаты от роутера в прихожей. Wi-Fi через панельные стены в этом доме работает плохо — стены с арматурой экранируют.</li>
+    <li>Телевизионная антенна в обе комнаты.</li>
+    <li>Домофон — на прежнем месте, трубку заменить на аппарат с крупными кнопками и регулировкой громкости.</li>
+  </ul>
+
+  <div class="b check">
+    <span class="b-l">Приёмка электрики — до штукатурки и потолков</span>
+    <ol>
+      <li>Фотофиксация всех трасс с рулеткой в кадре и привязкой к углам и полу.</li>
+      <li>Прозвонка каждой линии от щита до точки.</li>
+      <li>Замер сопротивления изоляции — с протоколом.</li>
+      <li>Проверка каждого УЗО кнопкой «Тест» и приборно, с фиксацией времени срабатывания.</li>
+      <li>Отсутствие скруток и замурованных распаечных коробок.</li>
+      <li>Однолинейная схема и подписи на всех автоматах.</li>
+    </ol>
+  </div>
+
+  <div class="mine">
+    <span class="mine-l">Мои решения</span>
+    <label>Итоговое число групп и модель щита</label>
+    <input data-k="el-shield" placeholder="например: 15 групп, щит на 36 модулей, в прихожей">
+    <label>Что решили по заземлению</label>
+    <textarea data-k="el-pe" placeholder="трёхжильный кабель, PE не подключён, УЗО на всех группах"></textarea>
+    <label>Электрик: контакт, договорённости, что сдал</label>
+    <textarea data-k="el-contractor" placeholder=""></textarea>
+  </div>
+</section>
+
+<!-- ========== 6. ОСВЕЩЕНИЕ ========== -->
+<section id="light">
+  <h2>Освещение</h2>
+  <p class="sec-sub">Единственная статья, где для этой квартиры экономить нельзя вообще</p>
+
+  <p class="lead">С возрастом хрусталик мутнеет и желтеет, зрачок сужается: к семидесяти годам на сетчатку попадает в разы меньше света, чем в двадцать. Человек не жалуется на темноту — он просто хуже видит ступеньку, край ванны и порог. Свет здесь работает как безопасность, а не как уют.</p>
+
+  <div class="b care">
+    <span class="b-l">Правило</span>
+    <p>Закладывайте примерно вдвое больше света, чем считается нормой для молодой квартиры — и обязательно равномерного. Одна люстра на комнату эту задачу не решает: она даёт яркое пятно в центре и тени по углам, а глазу пожилого человека тяжелее всего даются именно перепады яркости.</p>
+  </div>
+
+  <h3>Сколько нужно</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Помещение</th><th class="n">Освещённость</th><th>Чем набирается</th></tr></thead>
+    <tbody>
+      <tr><td>Комната, общий свет</td><td class="n">250–300 лк</td><td>Несколько источников: потолочные плюс бра или торшер</td></tr>
+      <tr><td>Место для чтения, рукоделия</td><td class="n">500–750 лк</td><td>Локальный направленный свет дополнительно к общему</td></tr>
+      <tr><td>Кухня, рабочая зона</td><td class="n">500 лк</td><td>Подсветка под верхними шкафами — обязательна</td></tr>
+      <tr><td>Кухня, общий</td><td class="n">250–300 лк</td><td></td></tr>
+      <tr><td>Ванная, у зеркала</td><td class="n">300–500 лк</td><td>Свет по бокам зеркала, а не сверху: сверху даёт тени на лице</td></tr>
+      <tr><td>Прихожая, коридор</td><td class="n">200 лк</td><td>Плюс ночной сценарий</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="calc">
+    <p style="font-family:'Golos Text',sans-serif;font-size:13px;margin:0 0 10px;color:var(--ink-2)">Сколько люмен покупать</p>
+    <div class="row">
+      <div class="f"><label>Площадь, м²</label><input id="l-s" type="number" value="17" min="1" step="0.1"></div>
+      <div class="f"><label>Нужно, лк</label><input id="l-lx" type="number" value="280" min="50" step="10"></div>
+    </div>
+    <div class="out" id="l-out"></div>
+  </div>
+
+  <h3>Требования к лампам</h3>
+  <ul>
+    <li><strong>Цветовая температура 3000–4000 K.</strong> Холодный свет выше 5000 K в жилой комнате утомляет и выглядит больнично.</li>
+    <li><strong>Индекс цветопередачи от 80, лучше 90.</strong> При низком CRI еда, лекарства и цвет лица выглядят неестественно — для пожилого человека это не эстетика, а способ заметить, что что-то не так.</li>
+    <li><strong>Без пульсации.</strong> Дешёвые светодиодные лампы мерцают, вызывая утомление и головную боль. Проверка на месте: навести камеру телефона на включённую лампу — если по экрану бегут полосы, лампа мерцает. Проверять до покупки партии.</li>
+    <li><strong>Без слепящих источников.</strong> Голая светодиодная точка в поле зрения хуже, чем недостаток света. Рассеиватели или направление в потолок.</li>
+  </ul>
+
+  <div class="b no">
+    <span class="b-l">Осторожно с диммерами</span>
+    <p>Дешёвый диммер со светодиодными лампами почти всегда даёт мерцание и гудение на низкой яркости. Либо покупать совместимую пару лампа плюс диммер и проверять до монтажа, либо отказаться от диммирования и сделать несколько независимых групп света.</p>
+  </div>
+
+  <h3>Сценарии, которые стоит развести по группам</h3>
+  <ul>
+    <li>Общий свет комнаты — отдельно от подсветки и бра.</li>
+    <li>Кухня: общий свет отдельно от подсветки рабочей зоны.</li>
+    <li>Ночная подсветка коридора и подхода к санузлу — на датчике движения, независима от выключателей.</li>
+    <li>Свет внутри шкафа и в кладовой — на дверном контакте.</li>
+  </ul>
+
+  <div class="mine">
+    <span class="mine-l">Мои решения</span>
+    <label>Светильники по комнатам: что выбрано</label>
+    <textarea data-k="light-fixtures" placeholder="комната 1 — ; комната 2 — ; кухня — ; санузел — "></textarea>
+  </div>
+</section>
+
+<!-- ========== 7. САНТЕХНИКА ========== -->
+<section id="water">
+  <h2>Сантехника</h2>
+  <p class="sec-sub">Всё, что течёт, течёт в стене и обнаруживается у соседей снизу</p>
+
+  <div class="b check">
+    <span class="b-l">Выяснить до проектирования</span>
+    <p>Когда управляющая компания последний раз меняла стояки ХВС, ГВС и канализации и стоит ли дом в программе капитального ремонта на ближайшие годы. Смысл менять свою разводку за год до планового вскрытия стояков — нулевой. Замена участка стояка в пределах квартиры делается по согласованию с УК и с отключением по заявке.</p>
+  </div>
+
+  <h3>Схема разводки</h3>
+  <p>Два подхода. <strong>Коллекторная</strong>: от гребёнки к каждому прибору идёт отдельная неразрывная труба — в стене нет ни одного соединения, каждый прибор перекрывается отдельно. <strong>Тройниковая</strong>: одна магистраль с отводами, дешевле по трубе, но соединения оказываются замурованы.</p>
+  <p>При вашем бюджете разумный компромисс: коллектор в санузле с короткими плечами до приборов, без соединений в стенах и полу.</p>
+
+  <div class="b no">
+    <span class="b-l">Незыблемое правило</span>
+    <p>Любое соединение труб должно быть либо <strong>неразъёмным</strong> (пресс-фитинг, сварка), либо <strong>доступным</strong> через лючок. Разъёмное соединение, замурованное в стену, — это будущая протечка с гарантией.</p>
+  </div>
+
+  <h3>Узел ввода</h3>
+  <ol>
+    <li>Вводные шаровые краны на ХВС и ГВС — качественные, они работают раз в год и должны сработать.</li>
+    <li>Фильтр грубой очистки с возможностью промывки.</li>
+    <li><strong>Редуктор давления.</strong> На пятом этаже девятиэтажного дома давление может быть выше комфортного; редуктор продлевает жизнь смесителям и бытовой технике и снижает гидроудары.</li>
+    <li>Счётчики с доступом для поверки и опломбирования.</li>
+    <li>Отсечные краны на каждую группу приборов.</li>
+  </ol>
+
+  <h3>Канализация</h3>
+  <ul>
+    <li>Чугунный стояк меняется на пластиковый только по согласованию с УК и целиком в пределах этажа.</li>
+    <li><strong>Шумоизоляция стояка обязательна</strong> — иначе всё, что делают соседи сверху, будет слышно в санузле. Минеральная вата плюс короб или специальная труба с шумопоглощением.</li>
+    <li>Уклон отводов: около 3 см на метр для диаметра 50 мм и 2 см на метр для 110 мм. Больший уклон так же вреден, как меньший — вода уходит вперёд твёрдых включений.</li>
+    <li>Ревизия и доступ к прочистке — через лючок.</li>
+    <li>Каждый прибор — со своим гидрозатвором.</li>
+  </ul>
+
+  <h3>Защита от протечек</h3>
+  <div class="b care">
+    <span class="b-l">Здесь это оправдано даже при экономии</span>
+    <p>Контроллер с электроприводными кранами на вводе и датчиками на полу: в ванной, в туалете, под мойкой на кухне и за стиральной машиной. Пожилой человек может не услышать течь и не успеть добежать до крана, а под вами семь этажей соседей. Комплект на два крана и четыре датчика стоит существенно дешевле, чем ремонт двух квартир. Питание контроллера — отдельной линией из щита, чтобы система не отключалась вместе с розетками.</p>
+  </div>
+
+  <h3>Полотенцесушитель</h3>
+  <p>Врезка в стояк ГВС требует согласования и создаёт точку риска. <strong>Электрический полотенцесушитель</strong> проще: не зависит от сезона и отключений горячей воды, монтируется на любую стену, требует лишь розетки во влагозащищённом исполнении на линии с УЗО 10 мА. При замене водяного на электрический существующий байпас в стояке остаётся нетронутым.</p>
+
+  <div class="b check">
+    <span class="b-l">Приёмка сантехники — до зашивки</span>
+    <ol>
+      <li>Опрессовка водопровода с выдержкой под давлением и протоколом. Без опрессовки не закрывать ничего.</li>
+      <li>Пролив канализации: слить полную ванну и проверить все стыки под нагрузкой.</li>
+      <li>Фотофиксация всех трасс с рулеткой до штукатурки и стяжки.</li>
+      <li>Проверка работы каждого отсечного крана.</li>
+      <li>Проверка срабатывания системы защиты от протечек — намочить каждый датчик и убедиться, что краны закрылись.</li>
+    </ol>
+  </div>
+
+  <div class="mine">
+    <span class="mine-l">Мои решения</span>
+    <label>Схема разводки, материал труб</label>
+    <input data-k="w-scheme" placeholder="например: коллектор в туалете, сшитый полиэтилен, пресс-фитинги">
+    <label>Ответ УК по стоякам и капремонту</label>
+    <textarea data-k="w-uk" placeholder=""></textarea>
+    <label>Сантехник: контакт, что сдал, опрессовка пройдена</label>
+    <textarea data-k="w-contractor" placeholder=""></textarea>
+  </div>
+</section>
+
+<!-- ========== 8. САНУЗЕЛ ========== -->
+<section id="bath">
+  <h2>Санузел</h2>
+  <p class="sec-sub">Самое опасное помещение в квартире для человека в возрасте — и здесь это главный критерий</p>
+
+  <p class="lead">Раздельный санузел в этой серии — два маленьких помещения, ванная около 2,2 м² и туалет около 1 м². Места мало, поэтому каждое решение приходится принимать осознанно. Хорошая новость: большая часть того, что делает санузел безопасным, стоит недорого — если заложить это заранее.</p>
+
+  <h3>Главное решение: ванна или душ</h3>
+  <p>Перешагивание через борт ванны высотой 55–60 см — самая частая причина падений в квартире. Рекомендация для этой квартиры — <strong>душ с низким входом</strong>: поддон высотой 10–15 см или конструкция вровень с полом, если позволяет высота стяжки.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Вариант</th><th>За</th><th>Против</th></tr></thead>
+    <tbody>
+      <tr><td><b>Душ, низкий поддон</b></td><td>Безопасный вход, проще уборка, экономит место, дешевле в отделке</td><td>Нельзя полежать; нужна аккуратная гидроизоляция</td></tr>
+      <tr><td><b>Душ вровень с полом (трап)</b></td><td>Максимально безопасно, выглядит лучше всего</td><td>Требует высоты для уклона и трапа — в панельном доме не всегда возможно; дороже</td></tr>
+      <tr><td><b>Ванна</b></td><td>Привычно, можно принимать лежа</td><td>Высокий борт, скользкое дно; обязательны поручень, сиденье-доска и нескользкий коврик</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Решение принимает мама, а не проектировщик. Но принимать его нужно до начала сантехнических работ: от него зависят гидроизоляция, разводка и закладные.</p>
+
+  <div class="b care">
+    <span class="b-l">Что закладывается заранее и потом не добавляется</span>
+    <ul>
+      <li><strong>Закладные под поручни.</strong> В гипсокартонную перегородку поручень без закладной не встанет — он вырвется вместе с листом ровно тогда, когда на него обопрутся всем весом. Закладная доска или стальная пластина ставится на этапе перегородок, до плитки: у входа в душ, вдоль стены душа и сбоку от унитаза.</li>
+      <li><strong>Противоскользящая плитка на пол</strong> класса R10–R11. Полированный керамогранит в мокром санузле — прямой путь к травме.</li>
+      <li><strong>Термостатический смеситель.</strong> Держит заданную температуру и не даёт кипятку пойти, если кто-то открыл воду на кухне. Защита от ожога, которую нельзя добавить потом без вскрытия стены.</li>
+      <li><strong>Унитаз повышенной высоты</strong> — около 43–45 см до края сиденья вместо стандартных 40. Вставать заметно легче.</li>
+      <li><strong>Дверь, открывающаяся наружу</strong>, и замок с аварийным открыванием снаружи. Если человеку стало плохо и он упал у двери, внутрь открывающуюся дверь не открыть.</li>
+      <li><strong>Отсутствие порога</strong>, вместо него перепад высоты пола и уклон к трапу или к двери — при обязательной гидроизоляции.</li>
+      <li><strong>Откидное сиденье в душе</strong> — недорого, а меняет весь сценарий пользования.</li>
+    </ul>
+  </div>
+
+  <h3>Гидроизоляция</h3>
+  <ol>
+    <li>Обмазочная гидроизоляция в два слоя по всему полу с заходом на стены на 20–30 см.</li>
+    <li>В зоне душа — на стены на высоту не менее 200 см.</li>
+    <li>Все углы, примыкания и вводы труб — с проклейкой гидроизоляционной лентой.</li>
+    <li>Работы ведутся <strong>до стяжки и до плитки</strong>, обязательно с фотофиксацией.</li>
+    <li>Гидроизоляция в туалете делается тоже — там стоит унитаз, и течь оттуда не менее вероятна.</li>
+  </ol>
+
+  <h3>Вентиляция и лючки</h3>
+  <ul>
+    <li>Принудительный вентилятор с обратным клапаном и датчиком влажности или таймером: включается вместе со светом и работает ещё несколько минут после.</li>
+    <li>Приток воздуха — зазор под дверью или переточная решётка. Без притока вытяжка не работает, сколько бы ни стоил вентилятор.</li>
+    <li>Ревизионные лючки к счётчикам, кранам и канализационной ревизии — обязательно, лучше нажимные, вровень с плиткой.</li>
+    <li>Тёплый пол электрический в ванной — и комфорт, и просушка помещения. В туалете тоже имеет смысл.</li>
+  </ul>
+
+  <div class="mine">
+    <span class="mine-l">Мои решения</span>
+    <label>Ванна или душ — решение и обоснование</label>
+    <textarea data-k="bath-choice" placeholder=""></textarea>
+    <label>Где ставим закладные под поручни</label>
+    <textarea data-k="bath-grab" placeholder="у входа в душ, вдоль стены, справа от унитаза"></textarea>
+    <label>Плитка: коллекция, класс противоскольжения, объём</label>
+    <textarea data-k="bath-tile" placeholder=""></textarea>
+  </div>
+</section>
+
+<!-- ========== 9. КУХНЯ И ГАЗ ========== -->
+<section id="kitchen">
+  <h2>Кухня и газ</h2>
+  <p class="sec-sub">Газ переводит часть решений из области желаний в область запретов</p>
+
+  <div class="b no">
+    <span class="b-l">Что запрещено</span>
+    <ul>
+      <li>Переносить плиту и газовую трубу самостоятельно. Только по проекту и силами газовой службы; в панельном доме это почти всегда упирается в отказ. Исходите из того, что плита останется на месте.</li>
+      <li>Замуровывать газовую трубу, счётчик и запорный кран в стену или в глухой короб. Труба должна быть доступна и видима.</li>
+      <li>Наглухо перекрывать вентиляционный канал вытяжкой.</li>
+      <li>Проверять тягу открытым огнём.</li>
+    </ul>
+  </div>
+
+  <h3>Вытяжка и вентканал</h3>
+  <p>Это место, где ошибаются чаще всего. При газовом оборудовании в кухне <strong>естественная тяга обязана работать всегда</strong> — в том числе когда вытяжка выключена. Если гофру вытяжки вставить в канал наглухо, при выключенной вытяжке канал закрыт, и продукты сгорания идут в квартиру.</p>
+  <p>Правильно: <strong>совмещённая решётка с двумя отверстиями</strong> — верхнее под гофру вытяжки с обратным клапаном, нижнее свободное для естественной тяги. Альтернатива без вмешательства в канал — вытяжка с угольным фильтром, работающая на рециркуляцию.</p>
+
+  <div class="b care">
+    <span class="b-l">Датчик загазованности с клапаном</span>
+    <p>Недорогое устройство, которое при утечке газа автоматически перекрывает подачу электромагнитным клапаном. Для квартиры, где пожилой человек живёт один, это одна из самых оправданных трат во всём ремонте. Требует линии питания — заложить на этапе электрики.</p>
+  </div>
+
+  <h3>Шкаф вокруг трубы и счётчика</h3>
+  <p>Декоративный короб допустим, если он обеспечивает доступ и вентиляцию: съёмная панель или дверца, вентиляционные отверстия сверху и снизу, никакой монтажной пены вокруг трубы. Газовая служба при проверке имеет право потребовать вскрыть зашитый участок за ваш счёт.</p>
+
+  <h3>Точки подключения</h3>
+  <ul>
+    <li>Розетки для встраиваемой техники располагают в соседнем шкафу или под мойкой — так, чтобы вилку можно было вынуть, не разбирая кухню.</li>
+    <li>Вывод воды и канализации под мойку с отсечными кранами и местом под фильтр.</li>
+    <li>Подводка для посудомоечной машины — даже если она появится позже, труба и розетка закладываются сейчас.</li>
+    <li>Розетка вытяжки — за верхним шкафом на высоте около 2 м.</li>
+    <li>Подсветка рабочей зоны — отдельной линией с выключателем на фартуке.</li>
+  </ul>
+
+  <div class="b check">
+    <span class="b-l">Проверить перед закрытием кухни</span>
+    <ol>
+      <li>Тяга в вентканале — листком тонкой бумаги при приоткрытом окне.</li>
+      <li>Отсутствие запаха газа у соединений — мыльным раствором.</li>
+      <li>Доступ к запорному крану без демонтажа мебели.</li>
+      <li>Все розетки за мебелью — доступны.</li>
+    </ol>
+  </div>
+
+  <div class="mine">
+    <span class="mine-l">Мои решения</span>
+    <label>Кухня: производитель, срок изготовления, дата замера</label>
+    <textarea data-k="k-order" placeholder=""></textarea>
+    <label>Техника с габаритами (плита, вытяжка, холодильник, ПММ)</label>
+    <textarea data-k="k-tech" placeholder=""></textarea>
+    <label>Вытяжка: в канал через совмещённую решётку или рециркуляция</label>
+    <input data-k="k-hood" placeholder="">
+  </div>
+</section>
+
+<!-- ========== 10. ВЕНТИЛЯЦИЯ, ОКНА, ТЕПЛО ========== -->
+<section id="air">
+  <h2>Вентиляция, окна, тепло</h2>
+  <p class="sec-sub">Три системы, которые в панельном доме работают только вместе</p>
+
+  <h3>Вентиляция</h3>
+  <p>В доме этой серии вентиляция естественная: воздух вытягивается через каналы на кухне и в санузле, а поступает через неплотности окон и дверей. Как только ставят герметичные пластиковые окна, приток исчезает — и вытяжка перестаёт работать вся целиком.</p>
+
+  <div class="b house">
+    <span class="b-l">При газе это критично</span>
+    <p>Когда на кухне газовая плита, отсутствие притока — не вопрос свежести воздуха, а вопрос безопасности. Обязательно закладывайте приток: приточный клапан в оконном профиле или стеновой клапан в наружной стене. Проверка тяги — листком тонкой бумаги у решётки при приоткрытом окне.</p>
+  </div>
+  <ul>
+    <li>Вентиляционные блоки не трогать, не сужать, не зашивать наглухо.</li>
+    <li>Переток воздуха между помещениями: зазор под дверью 15–20 мм или переточные решётки.</li>
+    <li>Принудительный вентилятор в санузле — с обратным клапаном, иначе к вам пойдёт воздух от соседей.</li>
+    <li>Мощная кухонная вытяжка при работающем газе способна создать разрежение и опрокинуть тягу — ещё один довод в пользу приточного клапана.</li>
+  </ul>
+
+  <h3>Окна</h3>
+  <p>Если меняете — только до отделки: монтаж пылит, пенит и требует доступа к откосам. Что важно для этой квартиры:</p>
+  <ul>
+    <li>Приточный клапан в профиле — заказывается вместе с окном, отдельно ставится хуже.</li>
+    <li>Режим микропроветривания и ограничитель открывания.</li>
+    <li>Ручки, которые легко поворачиваются одной рукой без усилия.</li>
+    <li>Подоконник и откосы — отдельная позиция сметы, о ней регулярно забывают.</li>
+    <li>Отлив и заделка монтажного шва снаружи — источник промерзания углов, если сделано небрежно.</li>
+  </ul>
+
+  <h3>Отопление</h3>
+  <ul>
+    <li>Замена радиаторов — по заявке в УК с отключением стояка; самовольная врезка чревата и штрафом, и заливом.</li>
+    <li>Шаровые краны на подводке к каждому радиатору — чтобы менять прибор, не отключая дом.</li>
+    <li>Радиатор нельзя закрывать глухим экраном или плотной шторой: теплоотдача падает вдвое.</li>
+    <li>Терморегулятор на подводке — полезен, но в однотрубной системе ставится только с байпасом.</li>
+    <li>Стояк отопления в углу комнаты зашивают коробом с доступом, не наглухо.</li>
+  </ul>
+
+  <h3>Кондиционер</h3>
+  <p>Решение принимается до черновых работ: межблочная трасса и дренаж прокладываются в стене и закрываются отделкой. Дренаж должен идти с уклоном в канализацию или наружу — переделка после ремонта означает вскрытие стены.</p>
+  <div class="b care">
+    <span class="b-l">Для мамы</span>
+    <p>Внутренний блок не должен дуть на кровать или в кресло: у пожилых людей прямой поток холодного воздуха быстро оборачивается простудой и болью в шее. Выбирайте место так, чтобы поток шёл вдоль потолка. Пульт — с крупными кнопками, а лучше настенный выключатель для простого сценария.</p>
+  </div>
+</section>
+
+<!-- ========== 11. ЧЕРНОВЫЕ ========== -->
+<section id="rough">
+  <h2>Черновые работы</h2>
+  <p class="sec-sub">Здесь решается, сколько будет стоить чистовая отделка</p>
+
+  <h3>Перегородки</h3>
+  <ul>
+    <li>Влагостойкий гипсокартон на металлическом каркасе или пазогребневые плиты. Под плитку — усиленный каркас с шагом стойки не более 40 см и обшивка в два слоя.</li>
+    <li><strong>Закладные под всё, что будет висеть:</strong> поручни в санузле, полки, телевизор, водонагреватель, полотенцесушитель. После обшивки закладную не поставить.</li>
+    <li>Внутрь каркаса — минеральная вата: и звук, и жёсткость.</li>
+  </ul>
+
+  <h3>Стены: не штукатурить лишнего</h3>
+  <div class="b money">
+    <span class="b-l">Реальная экономия</span>
+    <p>Панельные стены в таких домах часто достаточно ровные — они отливались в заводской форме. Проверьте двухметровым правилом: если перепад в пределах 3–5 мм, стене хватит шпаклёвки в два слоя, штукатурка не нужна. Разница в стоимости на квартиру — десятки тысяч рублей. Штукатурить «на всякий случай» всю квартиру, не проверив правилом, — самый частый способ потерять деньги на черновом этапе.</p>
+  </div>
+  <p>Отдельный случай — межквартирная стена: панель тонкая, звук проходит. Полная каркасная звукоизоляция съедает 6–8 см с каждой стены, что на 43,6 м² заметно. Разумный компромисс — сделать её точечно, там, где стоит изголовье кровати.</p>
+
+  <h3>Потолки</h3>
+  <ul>
+    <li>Перепад между плитами перекрытия в панельном доме — обычное дело. Выравнивать его штукатуркой дорого и долго.</li>
+    <li><strong>Натяжной потолок</strong> решает сразу три задачи: скрывает перепад, прячет проложенный по плите кабель и стоит дешевле полноценного выравнивания. Теряется 3–5 см высоты.</li>
+    <li>Закладные под люстру, светильники и карниз ставятся <strong>до</strong> натяжки полотна, по утверждённой схеме света.</li>
+    <li>Матовое полотно предпочтительнее глянцевого: глянец отражает светильники и создаёт блики, тяжёлые для возрастного зрения.</li>
+  </ul>
+
+  <h3>Стяжка</h3>
+  <p>Ограничение по нагрузке на перекрытие делает выбор стяжки инженерным решением, а не вопросом цены.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Вариант</th><th>Вес</th><th>Когда подходит</th></tr></thead>
+    <tbody>
+      <tr><td><b>Полусухая, 40–50 мм</b></td><td>Средний</td><td>Основной вариант: держит трубы и кабель, сохнет быстрее мокрой</td></tr>
+      <tr><td><b>Наливной пол, 10–20 мм</b></td><td>Лёгкий</td><td>Если основание после демонтажа ровное и в полу ничего не прокладывается</td></tr>
+      <tr><td><b>Сборный по керамзиту</b></td><td>Самый лёгкий</td><td>Большие перепады при жёстком ограничении по весу; сохнуть не нужно вовсе</td></tr>
+      <tr><td><b>Мокрая цементная, 50+ мм</b></td><td>Тяжёлый</td><td>По всей квартире в таком доме — избыточно</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="b no">
+    <span class="b-l">Сушка измеряется, а не отсчитывается по календарю</span>
+    <p>«Стяжка сохнет 28 дней» — не правило, а усреднение. Реальный срок зависит от состава, толщины, температуры и влажности в квартире, а также от того, проветривается ли помещение. Единственный корректный критерий — <strong>замер остаточной влажности основания</strong> влагомером, с допуском из инструкции к вашему напольному покрытию. Уложить ламинат или паркет на невысохшее основание — гарантированно вздутые полы и переделка за свой счёт.</p>
+  </div>
+</section>
+
+<!-- ========== 12. ЧИСТОВАЯ ========== -->
+<section id="finish">
+  <h2>Чистовая отделка</h2>
+  <p class="sec-sub">Единственный слой, который потом можно заменить относительно дёшево — поэтому именно здесь уместна экономия</p>
+
+  <h3>Полы</h3>
+  <p>Ключевые критерии для этой квартиры: не скользит, тёплый на ощупь, без порогов, легко моется.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Покрытие</th><th>Плюсы</th><th>Минусы</th></tr></thead>
+    <tbody>
+      <tr><td><b>Кварцвинил (SPC)</b></td><td>Тёплый, не скользит, не боится воды, тихий, тонкий — не съедает высоту</td><td>Дороже ламината</td></tr>
+      <tr><td><b>Ламинат 32–33 класс</b></td><td>Дешевле, большой выбор</td><td>Боится воды; глянцевые коллекции скользкие — брать матовые</td></tr>
+      <tr><td><b>Коммерческий линолеум</b></td><td>Самый дешёвый и практичный, монолитное покрытие без швов</td><td>Внешне проще</td></tr>
+      <tr><td><b>Керамогранит</b></td><td>Вечный, для санузла и кухни</td><td>Холодный и твёрдый; в жилых комнатах для пожилого человека не лучший выбор</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="b care">
+    <span class="b-l">Пороги</span>
+    <p>Каждый порог между комнатами — то, за что цепляются ногой. Планируйте покрытия в один уровень и стыкуйте их плоским профилем или прямым стыком без перепада. Если перепад неизбежен, он должен быть заметным по цвету — глаз должен его видеть.</p>
+  </div>
+
+  <h3>Стены</h3>
+  <ul>
+    <li><strong>Моющаяся краска практичнее обоев</strong> в квартире, где живут долго: пятно можно протереть, а угол — подкрасить за десять минут без переклейки полотна.</li>
+    <li>Матовая или полуматовая: глянец подчёркивает любую неровность панельной стены.</li>
+    <li>Углы в коридоре — с защитными профилями, иначе они обиваются в первый же год.</li>
+    <li>Качество покраски определяется подготовкой, а не краской. Экономить на шпаклёвке и грунте бессмысленно — это будет видно на каждой стене при боковом свете.</li>
+  </ul>
+
+  <h3>Плитка</h3>
+  <ul>
+    <li>Раскладка начинается от самой видимой точки; подрезка уходит в углы и под мебель.</li>
+    <li>Наружные углы — заводской запил под 45° или профиль; выбирается заранее, потому что влияет на раскладку.</li>
+    <li>Затирка: в зоне душа — эпоксидная, в остальном цементная. Все примыкания к ванне, поддону и полу — санитарным силиконом, не затиркой.</li>
+    <li>Пол — только противоскользящий класс R10–R11.</li>
+  </ul>
+
+  <h3>Двери</h3>
+  <ul>
+    <li>Ставятся после мокрых работ, по готовому уровню чистого пола.</li>
+    <li>В санузел — открывание наружу, без порога, с аварийным открыванием замка снаружи.</li>
+    <li>Ручки-скобы удобнее круглых: их можно открыть локтем и они не требуют силы захвата.</li>
+    <li>Ширина проёма в санузел — по возможности не менее 80 см: это запас на случай, если когда-нибудь понадобятся ходунки.</li>
+  </ul>
+</section>
+
+<!-- ========== 13. СКРЫТЫЕ РАБОТЫ ========== -->
+<section id="hidden">
+  <h2>Скрытые работы</h2>
+  <p class="sec-sub">Один день работы, который через пять лет сэкономит вскрытую стену</p>
+
+  <p class="lead">Скрытые работы — всё, что после следующего этапа перестанет быть видно. Момент фиксации наступает ровно один раз и не повторяется. Это не бюрократия: через год вы будете вешать полку и вам нужно знать, где кабель.</p>
+
+  <h3>Как фотографировать</h3>
+  <ol>
+    <li><strong>Общий кадр стены целиком</strong> — чтобы было понятно, что это за стена и где она.</li>
+    <li><strong>Детальные кадры с рулеткой в кадре</strong>, привязанной к углу и к полу. Фотография трассы без размера бесполезна.</li>
+    <li>Снимать при включённом свете, все четыре стены каждого помещения плюс пол и потолок.</li>
+    <li>Складывать в облако папками по помещениям и датам, а не в галерею телефона.</li>
+    <li>Распечатать план трасс и положить в карман щита — телефон может не оказаться под рукой у мастера.</li>
+  </ol>
+
+  <div class="b check">
+    <span class="b-l">Что и когда фиксировать</span>
+    <div class="tw"><table>
+      <thead><tr><th>Момент</th><th>Что зафиксировать</th></tr></thead>
+      <tbody>
+        <tr><td>До штукатурки и потолков</td><td>Все электротрассы, места распаечных соединений, подрозетники, закладные</td></tr>
+        <tr><td>До зашивки и стяжки</td><td>Разводка воды и канализации, уклоны, отсечные краны, протокол опрессовки</td></tr>
+        <tr><td>До стяжки и плитки</td><td>Гидроизоляция: сплошность, заход на стены, проклейка углов и вводов труб</td></tr>
+        <tr><td>До напольного покрытия</td><td>Стяжка, трубы и кабель в ней, результат замера влажности</td></tr>
+        <tr><td>До обшивки перегородок</td><td>Закладные под поручни, водонагреватель, телевизор, полки</td></tr>
+        <tr><td>До отделки стен</td><td>Трасса и дренаж кондиционера</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <h3>Испытания, которые нельзя пропустить</h3>
+  <ul>
+    <li><strong>Опрессовка водопровода</strong> с выдержкой под давлением и протоколом.</li>
+    <li><strong>Пролив канализации</strong> — слить полную ванну и осмотреть все стыки под нагрузкой.</li>
+    <li><strong>Замер сопротивления изоляции</strong> электропроводки с протоколом.</li>
+    <li><strong>Проверка каждого УЗО</strong> кнопкой и приборно.</li>
+    <li><strong>Проверка тяги</strong> в вентканалах кухни и санузла.</li>
+    <li><strong>Проверка системы защиты от протечек</strong> — намочить каждый датчик.</li>
+  </ul>
+
+  <div class="mine">
+    <span class="mine-l">Мои решения</span>
+    <label>Где лежит архив фотофиксации</label>
+    <input data-k="h-archive" placeholder="ссылка на облачную папку">
+    <label>Что уже зафиксировано и принято</label>
+    <textarea data-k="h-done" placeholder="электрика — ; сантехника — ; гидроизоляция — ; стяжка — "></textarea>
+  </div>
+</section>
+
+<!-- ========== 14. ДЕНЬГИ ========== -->
+<section id="money">
+  <h2>Деньги</h2>
+  <p class="sec-sub">Бюджет 1,5–2 млн ₽ на 43,6 м² — это 34–46 тыс ₽ за метр. Уровень рабочий, но без права на дорогие ошибки</p>
+
+  <p class="lead">Такой бюджет закрывает полный капитальный ремонт со сломкой, коммуникациями и чистовой отделкой — при условии, что вы держитесь нижней половины диапазона по каждой статье и заранее приняли, что резерв не роскошь, а часть сметы.</p>
+
+  <h3>Ориентировочная структура</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Статья</th><th class="n">От, ₽</th><th class="n">До, ₽</th></tr></thead>
+    <tbody>
+      <tr><td>Демонтаж, упаковка, вывоз мусора</td><td class="n">90 000</td><td class="n">140 000</td></tr>
+      <tr><td>Электрика: щит, кабель, работа</td><td class="n">190 000</td><td class="n">260 000</td></tr>
+      <tr><td>Сантехника: разводка, узел ввода, защита от протечек</td><td class="n">130 000</td><td class="n">190 000</td></tr>
+      <tr><td>Черновые: перегородки, стяжка, стены, потолки</td><td class="n">260 000</td><td class="n">360 000</td></tr>
+      <tr><td>Гидроизоляция и плитка в двух санузлах</td><td class="n">180 000</td><td class="n">270 000</td></tr>
+      <tr><td>Чистовая отделка комнат, кухни, прихожей</td><td class="n">170 000</td><td class="n">250 000</td></tr>
+      <tr><td>Напольные покрытия с укладкой и плинтусом</td><td class="n">90 000</td><td class="n">150 000</td></tr>
+      <tr><td>Межкомнатные двери с установкой</td><td class="n">80 000</td><td class="n">140 000</td></tr>
+      <tr><td>Сантехприборы, смесители, полотенцесушитель</td><td class="n">90 000</td><td class="n">150 000</td></tr>
+      <tr><td>Светильники и электроустановочные изделия</td><td class="n">60 000</td><td class="n">110 000</td></tr>
+      <tr><td>Расходники, доставка, подъём на этаж</td><td class="n">50 000</td><td class="n">80 000</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td>Итого работ и материалов</td><td class="n">1 390 000</td><td class="n">2 100 000</td></tr>
+      <tr><td>Резерв 15 %</td><td class="n">210 000</td><td class="n">315 000</td></tr>
+      <tr><td><b>Итого с резервом</b></td><td class="n"><b>1 600 000</b></td><td class="n"><b>2 415 000</b></td></tr>
+    </tfoot>
+  </table></div>
+  <p class="note">Порядок цифр для Подмосковья, работа и материалы вместе. Это ориентир для проверки смет подрядчиков, а не смета: реальные числа даёт только замер на объекте. Верхняя граница диапазона вместе с резервом уже выходит за 2 млн — значит по каждой статье целиться нужно в нижнюю половину.</p>
+
+  <div class="b no">
+    <span class="b-l">Что в эту сумму не входит и о чём забывают</span>
+    <ul>
+      <li><strong>Кухонный гарнитур со столешницей</strong> — отдельные сотни тысяч.</li>
+      <li><strong>Бытовая техника.</strong></li>
+      <li><strong>Окна</strong>, если решите менять, и <strong>входная дверь</strong>.</li>
+      <li>Мебель, шторы, карнизы, зеркала.</li>
+      <li>Вывоз старой мебели, переезд и хранение вещей.</li>
+      <li>Проживание мамы во время ремонта — жить в квартире на этапах демонтажа и черновых работ нельзя.</li>
+      <li>Финальная профессиональная уборка после ремонта.</li>
+    </ul>
+    <p>Если кухня и окна должны поместиться в те же 2 млн, бюджет не сходится — это решение нужно принять на входе, а не обнаружить на десятом этапе.</p>
+  </div>
+
+  <h3>На чём в этой квартире экономить нельзя</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Нельзя экономить</th><th>Можно экономить</th></tr></thead>
+    <tbody>
+      <tr><td>Электрика целиком: кабель, щит, УЗО, реле напряжения</td><td>Коллекция плитки — работа стоит одинаково</td></tr>
+      <tr><td>Гидроизоляция мокрых зон</td><td>Межкомнатные двери</td></tr>
+      <tr><td>Трубы и фитинги, узел ввода</td><td>Напольное покрытие в комнатах</td></tr>
+      <tr><td>Стяжка и подготовка основания</td><td>Обои или краска на стенах</td></tr>
+      <tr><td>Освещение и противоскользящая плитка</td><td>Сантехприборы среднего сегмента</td></tr>
+      <tr><td>Закладные под поручни, защита от протечек, датчик газа</td><td>Натяжной потолок вместо выравнивания — здесь экономия и есть правильное решение</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Логика простая: не экономим на том, что замуровано и меняется раз в двадцать пять лет, и на том, что влияет на безопасность. Экономим на том, что можно заменить за выходные.</p>
+
+  <h3>Где смета растёт предсказуемо</h3>
+  <ul>
+    <li><strong>Выравнивание стен и потолков</strong> — точный объём известен только после демонтажа. Требуйте, чтобы в смете это была позиция с ценой за метр, а не фиксированная сумма.</li>
+    <li><strong>Количество электроточек</strong> всегда растёт по ходу: каждая добавленная розетка — это кабель, подрозетник и работа.</li>
+    <li><strong>Подрезка плитки</strong> и сложная раскладка.</li>
+    <li><strong>«Раз уж всё равно вскрыли»</strong> — стояки, окна, входная дверь. Решать это надо на входе.</li>
+    <li><strong>Доставка и подъём</strong> — лифт в девятиэтажке экономит много, но плитку и стяжку всё равно кто-то поднимает.</li>
+  </ul>
+
+  <h3>Расчёты с подрядчиками по этапам</h3>
+  <p>Вы сами себе прораб, значит стыки между бригадами и деньги — ваша зона ответственности.</p>
+  <ol>
+    <li><strong>Смета до начала</strong>, в письменном виде, с объёмами и ценой за единицу. «Электрика под ключ — 200 000» сметой не является.</li>
+    <li><strong>Аванс только на материалы</strong>, отдельной строкой, с чеками. За работу вперёд не платят.</li>
+    <li><strong>Оплата по факту приёмки этапа</strong>, а не по календарю.</li>
+    <li><strong>Удержание около 10 %</strong> до устранения замечаний. Это единственный работающий рычаг после того, как бригада ушла.</li>
+    <li><strong>Изменения объёма фиксировать письменно</strong> — что меняется, почему, на сколько дороже и на сколько сдвигает срок. Хотя бы сообщением в мессенджере с подтверждением.</li>
+    <li><strong>Стык между бригадами оговаривать заранее:</strong> кто выводит трассу, до какой точки, в каком виде сдаёт следующему. Потерянные закладные и невыведенные концы — классика при подрядчиках по этапам.</li>
+  </ol>
+
+  <div class="mine">
+    <span class="mine-l">Мои деньги</span>
+    <label>Итоговый бюджет и что в него входит</label>
+    <textarea data-k="m-budget" placeholder=""></textarea>
+    <label>Потрачено на сегодня, по этапам</label>
+    <textarea data-k="m-spent" placeholder="демонтаж — ; электрика — ; сантехника — "></textarea>
+    <label>Открытые обязательства: заказано, но не оплачено</label>
+    <textarea data-k="m-committed" placeholder=""></textarea>
+  </div>
+</section>
+
+<!-- ========== 15. ОБЪЁМЫ ========== -->
+<section id="calc">
+  <h2>Объёмы и расчёты</h2>
+  <p class="sec-sub">Чтобы проверять сметы подрядчиков и не покупать лишнее</p>
+
+  <h3>Прикидка по квартире до замера</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Позиция</th><th class="n">Ориентир</th><th>Примечание</th></tr></thead>
+    <tbody>
+      <tr><td>Пол под покрытие: комнаты, кухня, прихожая</td><td class="n">≈ 39 м²</td><td>Без санузлов</td></tr>
+      <tr><td>Потолки всего</td><td class="n">≈ 43 м²</td><td></td></tr>
+      <tr><td>Стены под отделку</td><td class="n">≈ 110 м²</td><td>За вычетом дверных и оконных проёмов</td></tr>
+      <tr><td>Плитка на пол в двух санузлах</td><td class="n">≈ 3,5 м²</td><td>Плюс подрезка</td></tr>
+      <tr><td>Плитка на стены в двух санузлах</td><td class="n">≈ 22–25 м²</td><td>Зависит от высоты укладки</td></tr>
+      <tr><td>Плинтус</td><td class="n">≈ 50 пог. м</td><td>По периметрам за вычетом дверных проёмов</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Цифры выведены из площади 43,6 м² и типовой планировки двухкомнатной квартиры этой серии. После натурного замера заменить на фактические — они и пойдут в сметы.</p>
+
+  <h3>Комната: площади и периметр</h3>
+  <div class="calc">
+    <div class="row">
+      <div class="f"><label>Длина, м</label><input id="r-a" type="number" value="4.3" step="0.05" min="0"></div>
+      <div class="f"><label>Ширина, м</label><input id="r-b" type="number" value="4.0" step="0.05" min="0"></div>
+      <div class="f"><label>Высота, м</label><input id="r-h" type="number" value="2.5" step="0.05" min="0"></div>
+      <div class="f"><label>Проёмы, м²</label><input id="r-o" type="number" value="3.5" step="0.1" min="0"></div>
+    </div>
+    <div class="out" id="r-out"></div>
+  </div>
+
+  <h3>Материал с запасом</h3>
+  <p class="note">Плитка при прямой раскладке — запас 10 %, по диагонали или со сложным рисунком — 15 %. Ламинат и кварцвинил — 7 % при укладке вдоль, 10 % при укладке под углом.</p>
+  <div class="calc">
+    <div class="row">
+      <div class="f"><label>Площадь, м²</label><input id="t-s" type="number" value="25" step="0.1" min="0"></div>
+      <div class="f"><label>Запас, %</label><input id="t-z" type="number" value="10" step="1" min="0"></div>
+      <div class="f"><label>В упаковке, м²</label><input id="t-p" type="number" value="1.44" step="0.01" min="0.01"></div>
+    </div>
+    <div class="out" id="t-out"></div>
+  </div>
+
+  <h3>Краска</h3>
+  <div class="calc">
+    <div class="row">
+      <div class="f"><label>Площадь, м²</label><input id="p-s" type="number" value="110" step="1" min="0"></div>
+      <div class="f"><label>Слоёв</label><input id="p-n" type="number" value="2" step="1" min="1"></div>
+      <div class="f"><label>Расход, м²/л</label><input id="p-r" type="number" value="10" step="0.5" min="1"></div>
+    </div>
+    <div class="out" id="p-out"></div>
+  </div>
+
+  <div class="mine">
+    <span class="mine-l">Фактические замеры</span>
+    <label>Комната 1</label><input data-k="c-r1" placeholder="длина × ширина × высота, проёмы">
+    <label>Комната 2</label><input data-k="c-r2" placeholder="">
+    <label>Кухня</label><input data-k="c-k" placeholder="">
+    <label>Прихожая</label><input data-k="c-hall" placeholder="">
+    <label>Ванная и туалет</label><input data-k="c-bath" placeholder="">
+  </div>
+
+  <hr>
+  <p class="note">Справочник составлен под конкретный объект: панельный дом 1-464, 1976 года, Пушкино, Дзержинец, 43,6 м², две комнаты, раздельный санузел, газовая плита, 5 этаж из 9. Это обобщение хорошей практики и типовых норм, а не проект: проект электрики и любые работы, затрагивающие несущие конструкции, газ и общедомовые инженерные сети, выполняются профильными организациями по согласованию.</p>
+</section>
+
+</main>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var KEY = "remont-dzerzhinets-v1";
+
+  /* ---------- мои решения: сохранение ---------- */
+  var fields = Array.prototype.slice.call(document.querySelectorAll("[data-k]"));
+  function loadData(){
+    var raw;
+    try { raw = localStorage.getItem(KEY); } catch(e){ return; }
+    if (!raw) return;
+    var data;
+    try { data = JSON.parse(raw); } catch(e){ return; }
+    fields.forEach(function(f){
+      var v = data[f.getAttribute("data-k")];
+      if (typeof v === "string") f.value = v;
+    });
+  }
+  function collect(){
+    var o = {};
+    fields.forEach(function(f){
+      if (f.value) o[f.getAttribute("data-k")] = f.value;
+    });
+    return o;
+  }
+  var saveTimer = null;
+  function saveSoon(){
+    if (saveTimer) clearTimeout(saveTimer);
+    saveTimer = setTimeout(function(){
+      try { localStorage.setItem(KEY, JSON.stringify(collect())); } catch(e){}
+    }, 400);
+  }
+  fields.forEach(function(f){ f.addEventListener("input", saveSoon); });
+  loadData();
+
+  /* ---------- выгрузка и загрузка ---------- */
+  function filename(){
+    var d = new Date();
+    function p(n){ return (n < 10 ? "0" : "") + n; }
+    return "remont-" + d.getFullYear() + p(d.getMonth()+1) + p(d.getDate()) + ".json";
+  }
+  document.getElementById("exp").addEventListener("click", function(){
+    var text = JSON.stringify(collect(), null, 2);
+    var name = filename();
+    fallback();
+    function fallback(){
+      try {
+        var blob = new Blob([text], {type:"application/json"});
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url; a.download = name;
+        document.body.appendChild(a); a.click();
+        document.body.removeChild(a);
+        setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
+      } catch(e) {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text).then(function(){
+            alert("Скачивание недоступно. Данные скопированы в буфер обмена — вставьте в файл и сохраните.");
+          });
+        } else {
+          window.prompt("Скопируйте текст и сохраните в файл:", text);
+        }
+      }
+    }
+  });
+
+  var picker = document.createElement("input");
+  picker.type = "file";
+  picker.accept = "application/json,.json";
+  picker.style.display = "none";
+  document.body.appendChild(picker);
+  document.getElementById("imp").addEventListener("click", function(){ picker.click(); });
+  picker.addEventListener("change", function(){
+    var file = picker.files && picker.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function(){
+      var data;
+      try { data = JSON.parse(String(reader.result)); }
+      catch(e){ alert("Не получилось прочитать файл: это не сохранение справочника."); return; }
+      fields.forEach(function(f){
+        var v = data[f.getAttribute("data-k")];
+        f.value = (typeof v === "string") ? v : "";
+      });
+      saveSoon();
+      alert("Данные загружены.");
+    };
+    reader.onerror = function(){ alert("Файл не прочитался. Попробуйте ещё раз."); };
+    reader.readAsText(file);
+    picker.value = "";
+  });
+
+  /* ---------- навигация ---------- */
+  var links = Array.prototype.slice.call(document.querySelectorAll("nav.side a"));
+  var sections = Array.prototype.slice.call(document.querySelectorAll("main section"));
+  var byId = {};
+  links.forEach(function(a){ byId[a.getAttribute("href").slice(1)] = a; });
+
+  if ("IntersectionObserver" in window) {
+    var visible = {};
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ visible[en.target.id] = en.isIntersecting; });
+      var current = null;
+      for (var i = 0; i < sections.length; i++) {
+        if (visible[sections[i].id]) { current = sections[i].id; break; }
+      }
+      links.forEach(function(a){ a.classList.remove("on"); });
+      if (current && byId[current]) byId[current].classList.add("on");
+    }, { rootMargin: "-70px 0px -65% 0px", threshold: 0 });
+    sections.forEach(function(s){ io.observe(s); });
+  }
+
+  var nav = document.getElementById("nav");
+  var navtoggle = document.getElementById("navtoggle");
+  navtoggle.addEventListener("click", function(){
+    var open = nav.classList.toggle("open");
+    navtoggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  links.forEach(function(a){
+    a.addEventListener("click", function(){
+      nav.classList.remove("open");
+      navtoggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  /* ---------- поиск ---------- */
+  var q = document.getElementById("q");
+  var cache = sections.map(function(s){ return s.textContent.toLowerCase(); });
+  q.addEventListener("input", function(){
+    var v = q.value.trim().toLowerCase();
+    if (v.length < 2) {
+      sections.forEach(function(s){ s.classList.remove("dim"); });
+      links.forEach(function(a){ a.parentNode.classList.remove("dim"); });
+      return;
+    }
+    sections.forEach(function(s, i){
+      var hit = cache[i].indexOf(v) !== -1;
+      s.classList.toggle("dim", !hit);
+      var a = byId[s.id];
+      if (a) a.parentNode.classList.toggle("dim", !hit);
+    });
+  });
+
+  /* ---------- калькуляторы ---------- */
+  function num(id){ var el = document.getElementById(id); return el ? parseFloat(el.value) || 0 : 0; }
+  function fmt(x, d){ return x.toFixed(d === undefined ? 1 : d).replace(".", ","); }
+  function bind(ids, fn){
+    ids.forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) el.addEventListener("input", fn);
+    });
+    fn();
+  }
+
+  bind(["l-s","l-lx"], function(){
+    var s = num("l-s"), lx = num("l-lx");
+    var lm = s * lx;
+    var buy = lm * 1.3;
+    document.getElementById("l-out").innerHTML =
+      "Полезный поток: <b>" + Math.round(lm) + " лм</b><br>" +
+      "Покупать с запасом на рассеиватели и потери: <b>" + Math.round(buy/100)*100 + " лм</b><br>" +
+      "Это примерно <b>" + Math.ceil(buy/800) + "</b> ламп по 800 лм, распределённых по комнате";
+  });
+
+  bind(["r-a","r-b","r-h","r-o"], function(){
+    var a = num("r-a"), b = num("r-b"), h = num("r-h"), o = num("r-o");
+    var floor = a*b, per = 2*(a+b), walls = per*h - o;
+    document.getElementById("r-out").innerHTML =
+      "Пол и потолок: <b>" + fmt(floor) + " м²</b> каждый<br>" +
+      "Периметр: <b>" + fmt(per) + " м</b> — по нему считают плинтус<br>" +
+      "Стены под отделку: <b>" + fmt(walls < 0 ? 0 : walls) + " м²</b>";
+  });
+
+  bind(["t-s","t-z","t-p"], function(){
+    var s = num("t-s"), z = num("t-z"), p = num("t-p");
+    var need = s * (1 + z/100);
+    var packs = p > 0 ? Math.ceil(need/p) : 0;
+    document.getElementById("t-out").innerHTML =
+      "С запасом: <b>" + fmt(need) + " м²</b><br>" +
+      "Упаковок: <b>" + packs + "</b>" + (p > 0 ? " (" + fmt(packs*p) + " м²)" : "") + "<br>" +
+      "Брать одной партией: у разных партий отличается оттенок";
+  });
+
+  bind(["p-s","p-n","p-r"], function(){
+    var s = num("p-s"), n = num("p-n"), r = num("p-r");
+    var l = r > 0 ? s*n/r : 0;
+    document.getElementById("p-out").innerHTML =
+      "Краски нужно: <b>" + fmt(l) + " л</b><br>" +
+      "Плюс грунт на первый слой: <b>" + fmt(s/10) + " л</b><br>" +
+      "Колеровать всю партию сразу — повторный замес даст другой оттенок";
+  });
+})();
+</script>
+
+</body></html>
